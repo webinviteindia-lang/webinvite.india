@@ -837,6 +837,13 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
 
 .iphone .screen { border-radius: 36px; }
 
+.screen-scroll {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
 .screen-scroll img {
     width: 100%;
     min-height: 100.1%; /* Ensure it's slightly taller to allow scrolling if needed */

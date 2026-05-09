@@ -293,4 +293,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Device Scroll Parallax (ScrollTrigger) ---
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (document.querySelector('.device-showcase')) {
+        gsap.to('.iphone', {
+            scrollTrigger: {
+                trigger: '.device-showcase',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1
+            },
+            y: -100, // moves up while scrolling
+            rotationX: 5,
+            ease: "none"
+        });
+
+        gsap.to('.macbook', {
+            scrollTrigger: {
+                trigger: '.device-showcase',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.5
+            },
+            y: -50,
+            ease: "none"
+        });
+
+        gsap.to('.device-glow', {
+            scrollTrigger: {
+                trigger: '.device-showcase',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 2
+            },
+            y: 200,
+            scale: 1.5,
+            ease: "none"
+        });
+    }
+
 });
