@@ -348,4 +348,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Hero Mobile Scroll Parallax ---
+    mm.add("(max-width: 767px)", () => {
+        if (document.getElementById('preview-1') && document.getElementById('preview-2')) {
+            gsap.to('#preview-1', {
+                scrollTrigger: {
+                    trigger: '.hero-section',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.5
+                },
+                x: 150, 
+                rotationY: 720, // 2 full rotations
+                scale: 0.6,
+                z: -300,
+                opacity: 0,
+                ease: "none"
+            });
+
+            gsap.to('#preview-2', {
+                scrollTrigger: {
+                    trigger: '.hero-section',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 0.5
+                },
+                x: 100, 
+                rotationY: 720, // 2 full rotations
+                rotationX: 0,
+                scale: 1.2,
+                z: 200,
+                opacity: 1,
+                ease: "none"
+            });
+        }
+    });
+
 });

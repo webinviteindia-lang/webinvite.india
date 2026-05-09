@@ -1227,7 +1227,7 @@ footer {
     
     .hero-showcase { height: 350px !important; }
     #preview-1 { width: 75%; right: 5%; bottom: 0; }
-    #preview-2 { width: 65%; left: 5%; top: 10%; }
+    #preview-2 { width: 65%; left: 5%; top: 10%; filter: none !important; }
     
     /* Hide heavy custom hover elements on mobile */
     .custom-cursor, #cursor-glow, .glass-label, .feature-panel, .neon-line {
