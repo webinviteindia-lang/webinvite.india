@@ -331,6 +331,21 @@ document.addEventListener('DOMContentLoaded', () => {
             scale: 1.5,
             ease: "none"
         });
+
+        // --- Inner Website Scroll (Sync with Page Scroll) ---
+        const innerScreens = document.querySelectorAll('.screen-scroll img');
+        innerScreens.forEach(img => {
+            gsap.to(img, {
+                scrollTrigger: {
+                    trigger: '.device-showcase',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                },
+                objectPosition: '50% 100%', // Scrolls the view inside the image
+                ease: "none"
+            });
+        });
     }
 
 });
