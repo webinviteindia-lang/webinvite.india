@@ -233,4 +233,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Device 3D Tilt ---
+    mm.add("(min-width: 768px)", () => {
+        const devices = document.querySelectorAll('.device');
+        devices.forEach(device => {
+            device.addEventListener('mousemove', (e) => {
+                const rect = device.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                gsap.to(device, {
+                    rotationX: rotateX,
+                    rotationY: rotateY,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+
+            device.addEventListener('mouseleave', () => {
+                gsap.to(device, {
+                    rotationX: 0,
+                    rotationY: 0,
+                    duration: 0.8,
+                    ease: "power2.out"
+                });
+            });
+        });
+    });
+
 });
