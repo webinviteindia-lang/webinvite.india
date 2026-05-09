@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinvite.India - Luxury Digital Experiences</title>
+    <meta name="description" content="Custom premium websites for weddings, brands, businesses, events and creators. webinvite.india crafts luxury digital experiences.">
+    <!-- Google Fonts: Inter and Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <div id="cursor-glow"></div>
+    <div class="custom-cursor-glow"></div>
+
+    <!-- Background Ambient Effects -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    
+    <nav class="navbar">
+        <div class="logo">webinvite.india</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#gallery">Gallery</a>
+            <a href="#process">Process</a>
+            <a href="#contact" class="btn-primary btn-small">Get Started</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Home / Hero Section -->
+        <section class="hero-section" id="home">
+            <div class="grid-texture"></div>
+            <!-- Ambient Glowing Orbs Background -->
+            <div class="ambient-background">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+                <div class="glow-orb orb-3"></div>
+            </div>
+            
+            <!-- Futuristic UI Fragments & Floating Labels -->
+            <div class="hero-floating-ui">
+                <!-- Left Details -->
+                <div class="float-item glass-label label-1" data-speed="0.04">
+                    <span class="mac-dot g"></span> Luxury Experience
+                </div>
+                <div class="float-item glass-label label-2" data-speed="-0.03">
+                    <span class="mac-dot y"></span> Modern UI
+                </div>
+                <div class="float-item glass-panel feature-panel" data-speed="0.06">
+                    <div class="panel-row"><span>Custom Website</span></div>
+                    <div class="panel-row"><span>Mobile Optimized</span></div>
+                    <div class="panel-row"><span>Interactive Design</span></div>
+                </div>
+
+                <!-- Right Depth Details -->
+                <div class="float-item neon-line" data-speed="-0.03"></div>
+            </div>
+
+            <!-- Balanced Grid Layout -->
+            <div class="hero-grid">
+                <!-- Left: Text Content -->
+                <div class="hero-content">
+                    <h1 class="cinematic-text reveal-text">Websites That Make<br>Brands Unforgettable</h1>
+                    <p class="subtext fade-in-up">Custom websites for weddings, brands, businesses, events, and creators.</p>
+                    <div class="hero-actions fade-in-up delay-1">
+                        <a href="#gallery" class="btn-primary glass-btn">
+                            <span>Explore Experiences</span>
+                            <div class="btn-glow"></div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right: Visual Showcase -->
+                <div class="hero-showcase" style="perspective: 1200px;">
+                    <div class="preview-card float-item" data-speed="-0.08" id="preview-1">
+                        <img src="assets/wedding_preview.png" alt="Demo Layout">
+                    </div>
+                    <div class="preview-card float-item" data-speed="0.1" id="preview-2">
+                        <img src="assets/luxury_preview.png" alt="Demo Layout">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Text -->
+        <section class="experience-section">
+            <h2 class="massive-text reveal-scroll">More than websites.<br><span class="text-gradient">Digital experiences.</span></h2>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <p>Select a category to view the experience</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Wedding -->
+                <div class="gallery-card" data-preview="assets/wedding_preview.png">
+                    <div class="card-bg" style="background-image: url('assets/wedding_preview.png');"></div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Wedding</h3>
+                        <p>Elegance and Romance</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Restaurant -->
+                <div class="gallery-card" data-preview="assets/restaurant_preview.png">
+                    <div class="card-bg" style="background-image: url('assets/restaurant_preview.png');"></div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Restaurant</h3>
+                        <p>Culinary Excellence</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Luxury Brand -->
+                <div class="gallery-card" data-preview="assets/luxury_preview.png">
+                    <div class="card-bg" style="background-image: url('assets/luxury_preview.png');"></div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Luxury Brand</h3>
+                        <p>High-end Retail</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Portfolio -->
+                <div class="gallery-card" data-preview="assets/portfolio_preview.png">
+                    <div class="card-bg" style="background-image: url('assets/portfolio_preview.png');"></div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Portfolio</h3>
+                        <p>Creative Professionals</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Event -->
+                <div class="gallery-card" data-preview="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <div class="card-bg">
+                        <div class="mac-window">
+                            <div class="mac-header"><span class="mac-dot r"></span><span class="mac-dot y"></span><span class="mac-dot g"></span></div>
+                            <div class="mac-body" style="background-image: url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                                <div class="mac-ui">
+                                    <div class="mac-ui-nav"><span>NEON FEST</span><span class="lines"></span></div>
+                                    <div class="mac-ui-hero"><h1>THE LINEUP</h1><span class="btn">GET TICKETS</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Event</h3>
+                        <p>Concerts & Shows</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Café -->
+                <div class="gallery-card" data-preview="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <div class="card-bg">
+                        <div class="mac-window">
+                            <div class="mac-header"><span class="mac-dot r"></span><span class="mac-dot y"></span><span class="mac-dot g"></span></div>
+                            <div class="mac-body" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                                <div class="mac-ui">
+                                    <div class="mac-ui-nav"><span>ROASTERS</span><span class="lines"></span></div>
+                                    <div class="mac-ui-hero"><h1>FRESH BREW</h1><span class="btn">MENU</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Café</h3>
+                        <p>Cozy & Warm</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Gym -->
+                <div class="gallery-card" data-preview="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <div class="card-bg">
+                        <div class="mac-window">
+                            <div class="mac-header"><span class="mac-dot r"></span><span class="mac-dot y"></span><span class="mac-dot g"></span></div>
+                            <div class="mac-body" style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                                <div class="mac-ui">
+                                    <div class="mac-ui-nav"><span>IRON CLUB</span><span class="lines"></span></div>
+                                    <div class="mac-ui-hero"><h1>PUSH LIMITS</h1><span class="btn">JOIN NOW</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Gym</h3>
+                        <p>Premium Fitness</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+                <!-- Photographer -->
+                <div class="gallery-card" data-preview="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+                    <div class="card-bg">
+                        <div class="mac-window">
+                            <div class="mac-header"><span class="mac-dot r"></span><span class="mac-dot y"></span><span class="mac-dot g"></span></div>
+                            <div class="mac-body" style="background-image: url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                                <div class="mac-ui">
+                                    <div class="mac-ui-nav"><span>LENS STUDIO</span><span class="lines"></span></div>
+                                    <div class="mac-ui-hero"><h1>MOMENTS</h1><span class="btn">GALLERY</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <h3>Photographer</h3>
+                        <p>Cinematic Galleries</p>
+                        <span class="view-text">View Demo →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Demo Modal overlay -->
+        <div class="demo-modal" id="demoModal">
+            <div class="demo-close">✕</div>
+            <div class="demo-container">
+                <div class="browser-bar">
+                    <div class="dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="url-bar">webinvite.india/demo</div>
+                </div>
+                <div class="demo-content-wrapper">
+                    <img src="" alt="Demo Preview" class="demo-image" id="demoImage">
+                </div>
+            </div>
+        </div>
+
+        <!-- Devices Showcase -->
+        <section class="device-showcase parallax-section">
+            <div class="section-header">
+                <h2>Perfect on any device</h2>
+            </div>
+            <div class="device-container">
+                <div class="device macbook">
+                    <div class="screen">
+                        <div class="screen-scroll">
+                            <img src="assets/luxury_preview.png" alt="Desktop Preview">
+                        </div>
+                    </div>
+                </div>
+                <div class="device iphone">
+                    <div class="screen">
+                        <div class="screen-scroll">
+                            <img src="assets/wedding_mobile.png" alt="Mobile Preview">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section" id="process">
+            <div class="section-header">
+                <h2>Our Process</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h3>DM Us</h3>
+                    <p>Start the conversation. Tell us your vision.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h3>Choose Style</h3>
+                    <p>Select from our premium modern designs.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h3>We Design</h3>
+                    <p>We craft your unique digital experience.</p>
+                </div>
+                <div class="step-line"></div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h3>Launch</h3>
+                    <p>Go live and impress your audience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before Vs After -->
+        <section class="transformation-section">
+            <div class="section-header">
+                <h2>The Evolution</h2>
+            </div>
+            <div class="comparison-slider">
+                <div class="comparison-image before">
+                    <div class="c-label">Just Instagram</div>
+                </div>
+                <div class="comparison-image after">
+                    <div class="c-label">Premium Website</div>
+                </div>
+                <div class="slider-handle"></div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="section-header">
+                <h2>Loved by Creators</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass">
+                    <p class="quote">"Our restaurant bookings tripled after switching to a webinvite site. Truly an immersive experience."</p>
+                    <div class="author">
+                        <div class="avatar bg-blue"></div>
+                        <div class="info">
+                            <h4>Chef Marco</h4>
+                            <span>Owner, The Azure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass">
+                    <p class="quote">"It felt like opening an Apple product, but it was my wedding website. Absolutely stunning details."</p>
+                    <div class="author">
+                        <div class="avatar bg-silver"></div>
+                        <div class="info">
+                            <h4>Sarah & James</h4>
+                            <span>Wedding Couple</span>
+                        </div>
+                    </div>
+                </div>
+                 <div class="testimonial-card glass">
+                    <p class="quote">"They transformed my portfolio into a cinematic masterpiece. My clients are blown away."</p>
+                    <div class="author">
+                        <div class="avatar bg-dark"></div>
+                        <div class="info">
+                            <h4>Alex Rivera</h4>
+                            <span>Creative Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="contact">
+            <div class="cta-glow"></div>
+            <h2 class="massive-text">Your brand deserves more<br>than just Instagram.</h2>
+            <div class="cta-actions">
+                <a href="https://www.instagram.com/webinvite.india?igsh=MThsemd6djc1cW9pYg==" class="btn-primary large-btn glass-btn magnetic-btn" id="igContactBtn" target="_blank" rel="noopener noreferrer">
+                    <span>Start Your Website</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <p class="cta-subtext fade-in-up delay-1">Reply within minutes ⚡</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">webinvite.india</div>
+            <div class="footer-links">
+                <a href="https://instagram.com/webinvite.india">Instagram</a>
+                <a href="#gallery">Gallery</a>
+                <a href="mailto:hello@webinvite.india">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 webinvite.india. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
