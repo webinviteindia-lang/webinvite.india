@@ -233,34 +233,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Device 3D Tilt ---
+    // --- Advanced Cinematic Device 3D Tilt & Lighting ---
     mm.add("(min-width: 768px)", () => {
         const devices = document.querySelectorAll('.device');
+        
         devices.forEach(device => {
+            const lightingStreak = device.querySelector('.lighting-streak');
+            
             device.addEventListener('mousemove', (e) => {
                 const rect = device.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
+                
+                // Calculate rotation based on center
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
+                
+                // More dramatic tilt
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
 
                 gsap.to(device, {
-                    rotationX: rotateX,
-                    rotationY: rotateY,
-                    duration: 0.5,
+                    rotationX: rotateX + 10, // base 10deg
+                    rotationY: rotateY - 15, // base -15deg
+                    scale: 1.05,
+                    duration: 0.6,
                     ease: "power2.out"
                 });
+
+                // Animate light streak based on pointer
+                if(lightingStreak) {
+                    const streakPos = (x / rect.width) * 200 - 50; 
+                    gsap.to(lightingStreak, {
+                        left: streakPos + '%',
+                        opacity: 1,
+                        duration: 0.6,
+                        ease: "power2.out"
+                    });
+                }
             });
 
             device.addEventListener('mouseleave', () => {
                 gsap.to(device, {
-                    rotationX: 0,
-                    rotationY: 0,
-                    duration: 0.8,
-                    ease: "power2.out"
+                    rotationX: 10,
+                    rotationY: -15,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "elastic.out(1, 0.3)"
                 });
+                
+                if(lightingStreak) {
+                    gsap.to(lightingStreak, {
+                        left: '-100%',
+                        opacity: 0,
+                        duration: 1
+                    });
+                }
             });
         });
     });

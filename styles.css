@@ -727,9 +727,33 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
 /* Devices Showcase */
 .device-showcase {
     padding: 15vh 5%;
-    background: #050505;
+    background: #020202;
     position: relative;
     overflow: hidden;
+}
+
+.device-bg-effects {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.device-glow {
+    position: absolute;
+    width: 60vw; height: 60vw;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+}
+.glow-blue { background: #407aff; top: -10%; right: -10%; }
+
+.device-spotlight {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; height: 80%;
+    background: radial-gradient(circle at center, rgba(64, 122, 255, 0.08) 0%, transparent 70%);
 }
 
 .devices-container {
@@ -739,7 +763,9 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     gap: 5rem;
     margin-top: 4rem;
     flex-wrap: wrap;
-    perspective: 2000px;
+    perspective: 3000px;
+    z-index: 2;
+    position: relative;
 }
 
 .device {
@@ -747,10 +773,9 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     border-radius: 40px;
     background: #000;
     box-shadow: 
-        0 30px 60px -12px rgba(0,0,0,0.5),
-        0 18px 36px -18px rgba(0,0,0,0.5),
-        inset 0 0 0 2px rgba(255,255,255,0.1);
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        0 40px 80px -20px rgba(0,0,0,0.8),
+        inset 0 0 0 2px rgba(255,255,255,0.05);
+    transition: transform 0.4s ease-out; /* GSAP will handle main animation */
     transform-style: preserve-3d;
 }
 
@@ -759,97 +784,68 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     width: 720px;
     height: 460px;
     border-radius: 20px 20px 0 0;
-    border: 14px solid #1a1a1a;
-    border-bottom: 30px solid #1a1a1a;
+    border: 14px solid #111;
+    border-bottom: 24px solid #111;
     position: relative;
-}
-
-.macbook::after {
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 6px;
-    background: #2a2a2a;
-    border-radius: 0 0 6px 6px;
-}
-
-.macbook::before {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 6px;
-    background: #333;
-    border-radius: 50%;
-    z-index: 5;
 }
 
 /* iPhone Styling */
 .iphone {
     width: 300px;
     height: 620px;
-    border: 12px solid #1a1a1a;
-    border-radius: 45px;
+    border: 12px solid #1c1c1c;
+    border-radius: 48px;
     background: #000;
     overflow: hidden;
     position: relative;
+    transform: rotateY(-15deg) rotateX(10deg); /* Default cinematic tilt */
 }
 
-/* iPhone Notch */
 .iphone::before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 30px;
-    background: #1a1a1a;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    top: 0; left: 50%; transform: translateX(-50%);
+    width: 140px; height: 35px; background: #1c1c1c;
+    border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
     z-index: 10;
+}
+
+/* Lighting and Reflections */
+.phone-lighting {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 9;
+}
+
+.lighting-streak {
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: skewX(-30deg);
 }
 
 .device .screen {
     width: 100%;
     height: 100%;
-    background: #111;
+    background: #000;
     overflow: hidden;
     position: relative;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
 }
 
-.macbook .screen { border-radius: 4px; }
-.iphone .screen { border-radius: 33px; }
-
-/* Reflection Glow Effect */
-.screen::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
-    pointer-events: none;
-    z-index: 8;
-}
-
-.screen-scroll {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-}
+.iphone .screen { border-radius: 36px; }
 
 .screen-scroll img {
     width: 100%;
+    min-height: 100.1%; /* Ensure it's slightly taller to allow scrolling if needed */
     height: auto;
     display: block;
     position: absolute;
     top: 0;
     left: 0;
+    object-fit: cover;
     animation: autoScroll 40s linear infinite alternate;
 }
 
@@ -858,21 +854,21 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     100% { transform: translateY(-70%); }
 }
 
-.device:hover {
-    box-shadow: 
-        0 50px 100px -20px rgba(0,0,0,0.6),
-        0 30px 60px -30px rgba(0,0,0,0.6),
-        inset 0 0 0 2px rgba(255,255,255,0.2);
-}
-
 /* Floating Animation */
-.macbook { animation: deviceFloat 6s ease-in-out infinite; }
-.iphone { animation: deviceFloat 6s ease-in-out infinite 1s; }
+.macbook { animation: deviceFloat 8s ease-in-out infinite; }
+.iphone { animation: deviceFloat 8s ease-in-out infinite 1s; }
 
 @keyframes deviceFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0) rotateY(-15deg) rotateX(10deg); }
+    50% { transform: translateY(-25px) rotateY(-10deg) rotateX(5deg); }
 }
+
+.device:hover {
+    box-shadow: 
+        0 60px 120px -30px rgba(0,0,0,0.9),
+        inset 0 0 0 2px rgba(255,255,255,0.15);
+}
+
 
 
 /* Process Section */
@@ -1254,14 +1250,36 @@ footer {
     /* Devices Showcase Mobile Vertical Stack */
     .devices-container {
         display: flex !important; flex-direction: column; align-items: center;
-        height: auto !important; min-height: 0; gap: 40px; margin-top: 40px;
+        height: auto !important; min-height: 0; gap: 60px; margin: 40px auto;
         animation: none;
     }
-    .device, .macbook-wrapper, .iphone-wrapper {
-        position: relative !important; left: auto !important; top: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: 100% !important;
+    .device {
+        position: relative !important; left: auto !important; top: auto !important; transform: none !important; margin: 0 auto;
     }
-    .macbook-wrapper { max-width: 90vw !important; }
-    .iphone-wrapper { max-width: 50vw !important; }
+    .macbook { 
+        width: 90vw !important; 
+        height: 58vw !important; 
+        max-width: 600px;
+        max-height: 380px;
+        border-width: 8px !important; 
+        border-bottom-width: 18px !important; 
+    }
+    .iphone { 
+        width: 65vw !important; 
+        height: 130vw !important; 
+        max-width: 280px;
+        max-height: 560px;
+        border-width: 10px !important;
+        margin-bottom: 2rem;
+    }
+
+    .screen-scroll img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        position: relative !important;
+        animation: none !important; /* Stop auto scroll on mobile for better clarity */
+    }
 
     .comparison-image { padding: 1rem; }
     .c-label { font-size: 0.75rem; padding: 0.3rem 0.6rem; }
