@@ -1,129 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURA | High Jewelry</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        background-color: #fafafa;
-        color: #111;
-        overflow-x: hidden;
-    }
-    .serif { font-family: 'Cormorant Garamond', serif; }
-    .bg-brand { background-color: #ebe7e0; }
-    
-    .hero-bg {
-        background: url('https://images.unsplash.com/photo-1599643478514-4a1202306145?q=80&w=2070&auto=format&fit=crop');
-        background-size: cover;
-        background-position: center;
-    }
-    
-    .fade-up { transition: all 0.8s ease; }
-    .hover-scale { transition: transform 1s ease; }
-    .group:hover .hover-scale { transform: scale(1.05); }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Jewelry</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111111;
+            color: #F5F5F5;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .silver-text {
+            background: linear-gradient(to right, #ffffff, #cfcfcf, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-bg {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.75)),
+                url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .banner-bg {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glow {
+            box-shadow: 0 0 60px rgba(255, 255, 255, 0.08);
+        }
+
+        .card-hover {
+            transition: all .5s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(255, 255, 255, 0.08);
+        }
+
+        .zoom img {
+            transition: all .6s ease;
+        }
+
+        .zoom:hover img {
+            transform: scale(1.08);
+        }
+
+        .fade-up {
+            animation: fadeUp 1s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            transition: all .4s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+        }
+
+        .underline-hover {
+            position: relative;
+        }
+
+        .underline-hover::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 1px;
+            background: #fff;
+            transition: .4s;
+        }
+
+        .underline-hover:hover::after {
+            width: 100%;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Nav -->
-  <nav class="fixed w-full z-50 py-6 px-10 flex justify-between items-center bg-white/80 backdrop-blur-md">
-      <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em] font-medium">
-          <a href="#" class="hover:text-gray-500 transition">Collections</a>
-          <a href="#" class="hover:text-gray-500 transition">High Jewelry</a>
-      </div>
-      <div class="text-3xl tracking-[0.3em] font-medium serif mx-auto md:mx-0">AURA</div>
-      <div class="hidden md:flex gap-8 text-[11px] uppercase tracking-[0.2em] font-medium">
-          <a href="#" class="hover:text-gray-500 transition">Boutiques</a>
-          <a href="#" class="hover:text-gray-500 transition">Login</a>
-      </div>
-  </nav>
+    <!-- NAVBAR -->
 
-  <!-- Hero -->
-  <header class="h-screen w-full flex items-end pb-32 px-10 hero-bg relative">
-      <div class="absolute inset-0 bg-black/20"></div>
-      <div class="z-10 text-white max-w-2xl" data-aos="fade-up" data-aos-duration="1500">
-          <p class="uppercase tracking-[0.3em] text-xs mb-4">The New Collection</p>
-          <h1 class="text-6xl md:text-8xl serif mb-8 leading-tight">Ethereal<br>Radiance</h1>
-          <button class="bg-white text-black px-8 py-4 uppercase tracking-[0.2em] text-xs font-semibold hover:bg-black hover:text-white transition duration-500">Discover Now</button>
-      </div>
-  </header>
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-16 py-5">
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between">
 
-  <!-- Section 1 -->
-  <section class="py-32 px-10 max-w-7xl mx-auto flex flex-col md:flex-row gap-20 items-center">
-      <div class="flex-1" data-aos="fade-right">
-          <p class="uppercase tracking-[0.3em] text-xs text-gray-400 mb-6">Heritage</p>
-          <h2 class="text-5xl serif mb-8 leading-snug">Crafting Eternity Since 1924</h2>
-          <p class="font-light leading-relaxed text-gray-600 mb-10 text-sm">Every piece of AURA jewelry is born from an uncompromising pursuit of perfection. Sourcing only the most extraordinary diamonds and gemstones, our master artisans bring dreams to life in our Paris atelier.</p>
-          <a href="#" class="uppercase tracking-[0.2em] text-xs border-b border-black pb-1 hover:text-gray-500 transition">Read Our History</a>
-      </div>
-      <div class="flex-1 relative" data-aos="fade-left">
-          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=1200&auto=format&fit=crop" class="w-full h-auto shadow-xl" alt="Jewelry Crafting">
-      </div>
-  </section>
+            <div class="text-2xl font-semibold tracking-[4px] silver-text">
+                LUXE
+            </div>
 
-  <!-- Featured Grid -->
-  <section class="py-20 bg-brand">
-      <div class="max-w-7xl mx-auto px-10">
-          <div class="text-center mb-20" data-aos="fade-up">
-              <h2 class="text-4xl serif mb-4">Exceptional Creations</h2>
-              <p class="text-sm font-light text-gray-600">Icons of modern elegance</p>
-          </div>
-          
-          <div class="grid md:grid-cols-3 gap-10">
-              <div class="group cursor-pointer bg-white p-6 shadow-sm hover:shadow-xl transition duration-500" data-aos="fade-up" data-aos-delay="100">
-                  <div class="overflow-hidden mb-6 bg-[#f5f5f5]">
-                      <img src="https://images.unsplash.com/photo-1599643477877-530e5562020f?q=80&w=800&auto=format&fit=crop" class="w-full h-80 object-cover mix-blend-multiply hover-scale">
-                  </div>
-                  <div class="text-center">
-                      <h3 class="serif text-xl mb-2">Lumina Ring</h3>
-                      <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400">White Gold & Diamonds</p>
-                  </div>
-              </div>
+            <ul class="hidden md:flex items-center gap-10 text-sm tracking-wide">
+                <li class="underline-hover cursor-pointer">Home</li>
+                <li class="underline-hover cursor-pointer">About Us</li>
+                <li class="underline-hover cursor-pointer">Collection</li>
+                <li class="underline-hover cursor-pointer">Customization</li>
+                <li class="underline-hover cursor-pointer">Materials</li>
+                <li class="underline-hover cursor-pointer">Contact</li>
+            </ul>
 
-              <div class="group cursor-pointer bg-white p-6 shadow-sm hover:shadow-xl transition duration-500" data-aos="fade-up" data-aos-delay="200">
-                  <div class="overflow-hidden mb-6 bg-[#f5f5f5]">
-                      <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop" class="w-full h-80 object-cover mix-blend-multiply hover-scale">
-                  </div>
-                  <div class="text-center">
-                      <h3 class="serif text-xl mb-2">Solstice Necklace</h3>
-                      <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Platinum & Sapphires</p>
-                  </div>
-              </div>
+            <button class="glass px-6 py-3 rounded-full text-sm btn">
+                My Cart
+            </button>
 
-              <div class="group cursor-pointer bg-white p-6 shadow-sm hover:shadow-xl transition duration-500" data-aos="fade-up" data-aos-delay="300">
-                  <div class="overflow-hidden mb-6 bg-[#f5f5f5]">
-                      <img src="https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?q=80&w=800&auto=format&fit=crop" class="w-full h-80 object-cover mix-blend-multiply hover-scale">
-                  </div>
-                  <div class="text-center">
-                      <h3 class="serif text-xl mb-2">Aura Bracelet</h3>
-                      <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400">Rose Gold & Emeralds</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
+        </div>
+    </nav>
 
-  <!-- Footer -->
-  <footer class="bg-black text-white py-20 px-10 text-center">
-      <div class="text-4xl tracking-[0.3em] font-medium serif mb-10">AURA</div>
-      <div class="flex justify-center gap-8 text-[10px] uppercase tracking-[0.2em] mb-10 text-gray-400">
-          <a href="#" class="hover:text-white transition">Contact Us</a>
-          <a href="#" class="hover:text-white transition">Services</a>
-          <a href="#" class="hover:text-white transition">Privacy Policy</a>
-      </div>
-      <p class="text-xs text-gray-600">&copy; 2026 AURA High Jewelry. All rights reserved.</p>
-  </footer>
+    <!-- HERO SECTION -->
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ once: true, offset: 100 });
-    lucide.createIcons();
-  </script>
+    <section class="hero-bg min-h-screen flex items-center px-6 md:px-20 relative overflow-hidden">
+
+        <div class="absolute top-20 right-20 w-72 h-72 bg-white/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-10 left-10 w-72 h-72 bg-white/5 blur-[120px] rounded-full"></div>
+
+        <div class="max-w-3xl fade-up relative z-10">
+
+            <p class="uppercase tracking-[6px] text-sm text-gray-300 mb-6">
+                Luxury Jewelry Collection
+            </p>
+
+            <h1 class="text-6xl md:text-8xl leading-none mb-8 silver-text">
+                Discover <br />
+                Your Sparkle
+            </h1>
+
+            <p class="text-gray-300 text-lg leading-8 max-w-2xl mb-10">
+                Experience timeless elegance with handcrafted luxury diamonds,
+                cinematic brilliance, and premium jewelry designed for unforgettable moments.
+            </p>
+
+            <div class="flex flex-wrap gap-5">
+
+                <button class="btn bg-white text-black px-8 py-4 rounded-full font-medium">
+                    Buy Now
+                </button>
+
+                <button class="btn glass px-8 py-4 rounded-full">
+                    Explore
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CATEGORY SECTION -->
+
+    <section class="py-28 px-6 md:px-20">
+
+        <div class="text-center mb-20">
+            <p class="uppercase tracking-[4px] text-gray-400 mb-4">
+                Premium Categories
+            </p>
+
+            <h2 class="text-5xl md:text-6xl silver-text">
+                Crafted Luxury
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10">
+
+            <!-- CARD -->
+
+            <div class="glass rounded-[30px] overflow-hidden card-hover glow">
+
+                <div class="overflow-hidden zoom">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1200&auto=format&fit=crop"
+                        class="h-[420px] w-full object-cover" />
+                </div>
+
+                <div class="p-8">
+
+                    <h3 class="text-4xl mb-4">Rings</h3>
+
+                    <p class="text-gray-400 leading-7 mb-8">
+                        Sophisticated diamond rings with premium silver reflections and timeless luxury.
+                    </p>
+
+                    <button class="btn glass px-6 py-3 rounded-full">
+                        Check More Product
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="glass rounded-[30px] overflow-hidden card-hover glow">
+
+                <div class="overflow-hidden zoom">
+                    <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1200&auto=format&fit=crop"
+                        class="h-[420px] w-full object-cover" />
+                </div>
+
+                <div class="p-8">
+
+                    <h3 class="text-4xl mb-4">Couple Rings</h3>
+
+                    <p class="text-gray-400 leading-7 mb-8">
+                        Romantic luxury pair rings crafted for unforgettable moments and eternal connection.
+                    </p>
+
+                    <button class="btn glass px-6 py-3 rounded-full">
+                        Check More Product
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="glass rounded-[30px] overflow-hidden card-hover glow">
+
+                <div class="overflow-hidden zoom">
+                    <img src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?q=80&w=1200&auto=format&fit=crop"
+                        class="h-[420px] w-full object-cover" />
+                </div>
+
+                <div class="p-8">
+
+                    <h3 class="text-4xl mb-4">Earrings</h3>
+
+                    <p class="text-gray-400 leading-7 mb-8">
+                        Minimal cinematic earrings with brilliant craftsmanship and editorial elegance.
+                    </p>
+
+                    <button class="btn glass px-6 py-3 rounded-full">
+                        Check More Product
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </body>
+
 </html>
