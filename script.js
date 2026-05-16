@@ -98,7 +98,9 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', () => {
             const linkSrc = card.getAttribute('data-link');
             if (linkSrc) {
-                window.location.href = linkSrc;
+                // Encode each path segment to handle spaces in folder/file names
+                const encodedPath = linkSrc.split('/').map(segment => encodeURIComponent(segment)).join('/');
+                window.location.href = encodedPath;
                 return;
             }
             const imageSrc = card.getAttribute('data-preview');
