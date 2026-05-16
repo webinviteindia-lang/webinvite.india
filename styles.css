@@ -790,24 +790,43 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
 }
 
 /* iPhone Styling */
+/* ── iPhone 12 Pro Mockup ── */
 .iphone {
-    width: 300px;
-    height: 620px;
+    width: 290px;
+    height: 590px;
     border: 12px solid #1c1c1c;
-    border-radius: 48px;
+    border-radius: 30px;
     background: #000;
     overflow: hidden;
     position: relative;
-    transform: rotateY(-15deg) rotateX(10deg); /* Default cinematic tilt */
+    transform: rotateY(-15deg) rotateX(10deg);
+    /* Stainless-steel frame layers */
+    box-shadow:
+        0 0 0 1px #555,
+        0 0 0 2px #aaa,
+        0 0 0 3px #4a4a4a,
+        0 30px 70px rgba(0,0,0,0.9),
+        0 8px 20px rgba(0,0,0,0.6),
+        inset 0 0 20px rgba(0,0,0,0.8);
+    transition: var(--transition-smooth);
 }
 
+/* Removed Notch */
 .iphone::before {
+    display: none;
+}
+
+/* Side power button (right) */
+.iphone::after {
     content: '';
     position: absolute;
-    top: 0; left: 50%; transform: translateX(-50%);
-    width: 140px; height: 35px; background: #1c1c1c;
-    border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;
-    z-index: 10;
+    right: -15px;
+    top: 130px;
+    width: 3px;
+    height: 70px;
+    background: linear-gradient(to bottom, #777, #aaa, #777);
+    border-radius: 0 2px 2px 0;
+    z-index: 30;
 }
 
 /* Lighting and Reflections */
@@ -815,15 +834,17 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none;
-    z-index: 9;
+    z-index: 15;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%, rgba(255,255,255,0.02) 100%);
 }
 
 .lighting-streak {
     position: absolute;
     top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transform: skewX(-30deg);
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+    transform: skewX(-20deg);
+    filter: blur(10px);
 }
 
 .device .screen {
@@ -835,7 +856,7 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
 }
 
-.iphone .screen { border-radius: 36px; }
+.iphone .screen { border-radius: 20px; }
 
 .screen-scroll {
     width: 100%;
@@ -1255,31 +1276,42 @@ footer {
     
     /* Devices Showcase Mobile Vertical Stack */
     .devices-container {
-        display: flex !important; flex-direction: column; align-items: center;
-        height: auto !important; min-height: 0; gap: 60px; margin: 40px auto;
-        animation: none;
-    }
-    .device {
-        position: relative !important; left: auto !important; top: auto !important; transform: none !important; margin: 0 auto;
+        position: relative !important;
+        height: 380px !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem auto !important;
     }
     .macbook { 
-        width: 90vw !important; 
-        height: 58vw !important; 
-        max-width: 600px;
-        max-height: 380px;
-        border-width: 8px !important; 
-        border-bottom-width: 18px !important; 
+        width: 85vw !important; 
+        height: 55vw !important; 
+        max-width: 450px;
+        max-height: 290px;
+        position: absolute !important;
+        left: 50% !important;
+        top: 45% !important;
+        transform: translate(-50%, -50%) !important;
+        border-width: 6px !important; 
+        border-bottom-width: 14px !important; 
+        z-index: 1;
     }
     .iphone { 
-        width: 65vw !important; 
-        height: 130vw !important; 
-        max-width: 280px;
-        max-height: 560px;
-        border-width: 10px !important;
-        margin-bottom: 2rem;
+        width: 28vw !important; 
+        height: 56vw !important; 
+        max-width: 130px;
+        max-height: 260px;
+        position: absolute !important;
+        left: 62% !important;
+        top: 62% !important;
+        transform: translate(0, -50%) !important;
+        border-width: 5px !important;
+        border-radius: 20px !important;
+        z-index: 2;
+        margin: 0 !important;
     }
 
-    .screen-scroll img {
+    .screen-scroll img, .screen-scroll video {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
@@ -1294,4 +1326,11 @@ footer {
     .cta-actions, .cta-actions .btn-primary, .magnetic-btn { width: 100% !important; text-align: center; }
     .final-cta h2 { font-size: clamp(2rem, 8vw, 3rem) !important; line-height: 1.2; }
     .huge-text, .massive-text { font-size: clamp(2rem, 8vw, 3rem); line-height: 1.2; }
+
+    .hero-section { min-height: auto !important; padding-bottom: 2rem; }
+    .experience-section { padding: 2.5rem 5% !important; min-height: auto !important; }
+    .gallery-section { padding: 2.5rem 5% !important; }
+    .device-showcase { padding: 2.5rem 5% !important; }
+    .process-section { padding: 2.5rem 5% !important; }
+    .final-cta { padding: 3rem 5% !important; }
 }
