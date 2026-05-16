@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>John Doe Photography</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+
+    *{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050505;
+      color:white;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    h1,h2,h3,h4{
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .gold{
+      color:#C6A57B;
+    }
+
+    .gold-border{
+      border-color:#C6A57B;
+    }
+
+    .glass{
+      background:rgba(255,255,255,0.04);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .divider{
+      width:120px;
+      height:1px;
+      background:#C6A57B;
+    }
+
+    .nav-link{
+      position:relative;
+    }
+
+    .nav-link::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:1px;
+      background:#C6A57B;
+      transition:.4s;
+    }
+
+    .nav-link:hover::after{
+      width:100%;
+    }
+
+    .card-hover{
+      transition:.5s;
+    }
+
+    .card-hover:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 50px rgba(198,165,123,.08);
+    }
+
+    .zoom img{
+      transition:.7s;
+    }
+
+    .zoom:hover img{
+      transform:scale(1.08);
+    }
+
+    .floating{
+      animation:float 5s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-12px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    .glow{
+      box-shadow:0 0 80px rgba(198,165,123,.08);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-16 py-6">
+
+    <div class="flex items-center justify-between border-b border-white/10 pb-6">
+
+      <!-- LEFT -->
+
+      <div class="hidden lg:flex items-center gap-6 text-sm text-gray-400">
+
+        <i data-lucide="instagram"></i>
+        <i data-lucide="twitter"></i>
+        <i data-lucide="facebook"></i>
+
+        <span class="ml-4">
+          +1 999 888 777
+        </span>
+
+      </div>
+
+      <!-- CENTER -->
+
+      <div class="text-3xl tracking-[8px] font-semibold absolute left-1/2 -translate-x-1/2">
+
+        JDOE
+      </div>
+
+      <!-- RIGHT -->
+
+      <ul class="hidden md:flex items-center gap-10 text-sm text-gray-300">
+
+        <li class="nav-link cursor-pointer">Home</li>
+        <li class="nav-link cursor-pointer">Shop</li>
+        <li class="nav-link cursor-pointer">Portfolio</li>
+        <li class="nav-link cursor-pointer">Features</li>
+        <li class="nav-link cursor-pointer">Courses</li>
+        <li class="nav-link cursor-pointer">Pages</li>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO / ABOUT -->
+
+  <section class="min-h-screen flex items-center pt-40 px-6 md:px-20 relative overflow-hidden">
+
+    <div class="absolute top-20 right-20 w-72 h-72 bg-[#C6A57B]/10 blur-[120px] rounded-full"></div>
+
+    <div class="grid lg:grid-cols-2 gap-20 items-center w-full">
+
+      <!-- LEFT -->
+
+      <div class="relative" data-aos="fade-right">
+
+        <div class="overflow-hidden rounded-[40px] glow">
+
+          <img
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-[700px] object-cover"
+          />
+
+        </div>
+
+        <!-- FLOATING IMAGE -->
+
+        <div class="absolute -bottom-16 -right-10 glass rounded-[30px] overflow-hidden w-60 floating">
+
+          <img
+            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop"
+            class="h-72 w-full object-cover"
+          />
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div data-aos="fade-left">
+
+        <div class="divider mb-8"></div>
+
+        <p class="uppercase tracking-[5px] gold mb-5">
+          Luxury Photographer
+        </p>
+
+        <h1 class="text-5xl md:text-7xl leading-tight mb-10">
+
+          Hi! My name is <br/>
+          <span class="gold">John Doe</span>, I’m a <br/>
+          photographer.
+
+        </h1>
+
+        <p class="text-gray-400 text-lg leading-9 max-w-2xl mb-12">
+          I create cinematic editorial photography with emotional storytelling,
+          fashion-inspired compositions, and artistic visual direction.
+          My work combines modern aesthetics, premium lighting, and immersive imagery
+          crafted for brands, weddings, portraits, and luxury campaigns.
+        </p>
+
+        <button class="border gold-border text-white px-8 py-4 rounded-full hover:bg-[#C6A57B] hover:text-black transition duration-500">
+          Explore Portfolio
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+
+  <section class="py-32 px-6 md:px-20 bg-[#111111]">
+
+    <div class="text-center mb-20">
+
+      <div class="divider mx-auto mb-8"></div>
+
+      <h2 class="text-5xl md:text-6xl mb-6">
+        I’m very talented. <br/>
+        Check what I can do!
+      </h2>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- CARD -->
+
+      <div class="glass rounded-[35px] p-10 text-center card-hover">
+
+        <div class="w-20 h-20 rounded-full border border-[#C6A57B]/40 flex items-center justify-center mx-auto mb-8">
+
+          <i data-lucide="camera" class="gold w-9 h-9"></i>
+
+        </div>
+
+        <h3 class="text-3xl mb-4">
+          Portraits
+        </h3>
+
+        <p class="text-gray-400 leading-7">
+          Artistic cinematic portraits with emotional storytelling and luxury aesthetics.
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-[35px] p-10 text-center card-hover">
+
+        <div class="w-20 h-20 rounded-full border border-[#C6A57B]/40 flex items-center justify-center mx-auto mb-8">
+
+          <i data-lucide="mountain" class="gold w-9 h-9"></i>
+
+        </div>
+
+        <h3 class="text-3xl mb-4">
+          Landscapes
+        </h3>
+
+        <p class="text-gray-400 leading-7">
+          Premium landscape photography with cinematic natural compositions.
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-[35px] p-10 text-center card-hover">
+
+        <div class="w-20 h-20 rounded-full border border-[#C6A57B]/40 flex items-center justify-center mx-auto mb-8">
+
+          <i data-lucide="briefcase-business" class="gold w-9 h-9"></i>
+
+        </div>
+
+        <h3 class="text-3xl mb-4">
+          Commercial
+        </h3>
+
+        <p class="text-gray-400 leading-7">
+          Modern commercial campaigns crafted for luxury brands and businesses.
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="glass rounded-[35px] p-10 text-center card-hover">
+
+        <div class="w-20 h-20 rounded-full border border-[#C6A57B]/40 flex items-center justify-center mx-auto mb-8">
+
+          <i data-lucide="heart" class="gold w-9 h-9"></i>
+
+        </div>
+
+        <h3 class="text-3xl mb-4">
+          Weddings
+        </h3>
+
+        <p class="text-gray-400 leading-7">
+          Elegant wedding photography with timeless editorial storytelling.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY COMPOSITION -->
+
+  <section class="py-32 px-6 md:px-20 relative overflow-hidden">
+
+    <div class="absolute left-0 top-40 w-80 h-80 bg-[#C6A57B]/10 blur-[140px] rounded-full"></div>
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- LEFT -->
+
+      <div class="space-y-8">
+
+        <div class="overflow-hidden rounded-[35px] zoom">
+
+          <img
+            src="https://images.unsplash.com/photo-1516724562728-afc824a36e84?q=80&w=1400&auto=format&fit=crop"
+            class="w-full h-[500px] object-cover"
+          />
+
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+
+          <div class="overflow-hidden rounded-[35px] zoom">
+
+            <img
+              src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop"
+              class="h-[300px] w-full object-cover"
+            />
+
+          </div>
+
+          <div class="overflow-hidden rounded-[35px] zoom">
+
+            <img
+              src="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?q=80&w=1200&auto=format&fit=crop"
+              class="h-[300px] w-full object-cover"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="relative">
+
+        <div class="overflow-hidden rounded-[40px] zoom floating">
+
+          <img
+            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400&auto=format&fit=crop"
+            class="w-full h-[700px] object-cover"
+          />
+
+        </div>
+
+        <!-- FLOAT -->
+
+        <div class="absolute -bottom-16 -left-12 glass rounded-[30px] overflow-hidden w-64">
+
+          <img
+            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200&auto=format&fit=crop"
+            class="h-80 w-full object-cover"
+          />
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CLIENTS -->
+
+  <section class="py-24 px-6 md:px-20 bg-[#111111]">
+
+    <div class="text-center mb-16">
+
+      <div class="divider mx-auto mb-8"></div>
+
+      <h2 class="text-5xl">
+        Trusted By Brands
+      </h2>
+
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 text-center text-gray-500 text-2xl tracking-[4px]">
+
+      <div>NIKE</div>
+      <div>SONY</div>
+      <div>GUCCI</div>
+      <div>PRADA</div>
+      <div>CANON</div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+
+  <section class="py-32 px-6 md:px-20">
+
+    <div class="text-center mb-20">
+
+      <div class="divider mx-auto mb-8"></div>
+
+      <h2 class="text-5xl md:text-6xl">
+        Featured Projects
+      </h2>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- IMAGE -->
+
+      <div class="overflow-hidden rounded-[35px] zoom card-hover">
+
+        <img
+          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"
+          class="h-[500px] w-full object-cover"
+        />
+
+      </div>
+
+      <!-- IMAGE -->
+
+      <div class="overflow-hidden rounded-[35px] zoom card-hover">
+
+        <img
+          src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop"
+          class="h-[500px] w-full object-cover"
+        />
+
+      </div>
+
+      <!-- IMAGE -->
+
+      <div class="overflow-hidden rounded-[35px] zoom card-hover">
+
+        <img
+          src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop"
+          class="h-[500px] w-full object-cover"
+        />
+
+      </div>
+
+      <!-- IMAGE -->
+
+      <div class="overflow-hidden rounded-[35px] zoom card-hover">
+
+        <img
+          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop"
+          class="h-[500px] w-full object-cover"
+        />
+
+      </div>
+
+      <!-- IMAGE -->
+
+      <div class="overflow-hidden rounded-[35px] zoom card-hover">
+
+        <img
+          src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop"
+          class="h-[500px] w-full object-cover"
+        />
+
+      </div>
+
+      <!-- IMAGE -->
+
+      <div class="overflow-hidden rounded-[35px] zoom card-hover">
+
+        <img
+          src="https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=1200&auto=format&fit=crop"
+          class="h-[500px] w-full object-cover"
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="py-32 px-6 md:px-20 bg-[#111111] text-center">
+
+    <div class="divider mx-auto mb-8"></div>
+
+    <h2 class="text-5xl md:text-6xl mb-10">
+      Contact us
+    </h2>
+
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-8 mb-12">
+      Let’s create timeless cinematic visuals together.
+      Available for commercial campaigns, fashion editorials,
+      weddings, portraits, and creative collaborations.
+    </p>
+
+    <button class="border gold-border px-10 py-5 rounded-full hover:bg-[#C6A57B] hover:text-black transition duration-500 mb-14">
+      Get In Touch
+    </button>
+
+    <div class="flex justify-center gap-6">
+
+      <div class="glass p-5 rounded-full card-hover">
+        <i data-lucide="instagram"></i>
+      </div>
+
+      <div class="glass p-5 rounded-full card-hover">
+        <i data-lucide="twitter"></i>
+      </div>
+
+      <div class="glass p-5 rounded-full card-hover">
+        <i data-lucide="youtube"></i>
+      </div>
+
+      <div class="glass p-5 rounded-full card-hover">
+        <i data-lucide="facebook"></i>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer class="py-10 border-t border-white/10 text-center text-gray-500 bg-black">
+
+    <div class="text-2xl tracking-[6px] mb-6">
+      JDOE
+    </div>
+
+    <div class="flex justify-center gap-10 mb-6 text-sm">
+
+      <a href="#">Home</a>
+      <a href="#">Portfolio</a>
+      <a href="#">Courses</a>
+      <a href="#">Contact</a>
+
+    </div>
+
+    <p>
+      © 2026 John Doe Photography Portfolio
+    </p>
+
+  </footer>
+
+  <!-- Scripts -->
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+
+    AOS.init({
+      duration:1200,
+      once:true
+    });
+
+    lucide.createIcons();
+
+  </script>
+
+</body>
+</html>

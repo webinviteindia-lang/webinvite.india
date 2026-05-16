@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SÔL — Fine Dining & Culinary Art</title>
+    
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #BC8E5E;
+            --bg: #0D0D0D;
+            --text: #E5E5E5;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .menu-item::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px dotted rgba(188, 142, 94, 0.3);
+            margin: 0 10px;
+            margin-bottom: 5px;
+        }
+
+        .nav-link {
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .btn-reserve {
+            border: 1px solid var(--primary);
+            padding: 14px 40px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        .btn-reserve:hover {
+            background: var(--primary);
+            color: var(--bg);
+            box-shadow: 0 10px 30px rgba(188, 142, 94, 0.2);
+        }
+
+        .hero-title {
+            line-height: 1.1;
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .floating {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-30px) rotate(2deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-6 md:px-20 py-8 flex justify-between items-center bg-transparent transition-all duration-500" id="navbar">
+        <div class="text-3xl font-bold tracking-[4px] serif text-white">SÔL</div>
+        
+        <div class="hidden md:flex gap-12">
+            <a href="#" class="nav-link">Menu</a>
+            <a href="#" class="nav-link">The Story</a>
+            <a href="#" class="nav-link">Private Events</a>
+            <a href="#" class="nav-link">Journal</a>
+        </div>
+
+        <a href="#" class="hidden md:block btn-reserve">Reservation</a>
+        
+        <div class="md:hidden">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-50 scale-110" id="heroImg">
+            <div class="absolute inset-0 bg-gradient-to-b from-bg/60 via-transparent to-bg"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4" data-aos="fade-up">
+            <p class="uppercase tracking-[8px] text-xs mb-8 text-primary">Est. 1982 — Paris</p>
+            <h1 class="text-7xl md:text-9xl font-bold mb-10 hero-title italic">Savour the <br> Unforgettable</h1>
+            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
+                <a href="#" class="btn-reserve bg-primary text-bg border-none">Book a Table</a>
+                <a href="#" class="btn-reserve">Explore Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culinary Excellence -->
+    <section class="py-32 bg-bg px-6 md:px-12">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
+            <div class="relative" data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=1000&auto=format&fit=crop" class="rounded-sm z-10 relative brightness-90 shadow-2xl" alt="Chef">
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 border border-primary/20 -z-0"></div>
+            </div>
+
+            <div data-aos="fade-left">
+                <h2 class="text-5xl md:text-6xl font-bold mb-8 serif italic">Honouring the <br> Ingredient</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Every dish at SÔL is a narrative of tradition and innovation. We work exclusively with local artisans and sustainable farms to ensure that every texture, aroma, and flavour reaches your palate at its absolute peak.</p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-[1px] bg-primary"></div>
+                        <span class="text-xs tracking-[4px] uppercase text-gray-500">Michelin Star Certified</span>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-[1px] bg-primary"></div>
+                        <span class="text-xs tracking-[4px] uppercase text-gray-500">Sustainable Sourcing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="py-32 bg-[#0F0F0F] px-6 md:px-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <p class="text-primary tracking-[8px] text-xs mb-4 uppercase">Seasonal Selection</p>
+                <h2 class="text-5xl md:text-7xl font-bold serif italic">Le Menu</h2>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Course 1 -->
+                <div data-aos="fade-up">
+                    <div class="flex items-baseline menu-item mb-2">
+                        <h3 class="text-2xl font-light serif italic">Smoked Atlantic Salmon</h3>
+                        <span class="text-primary font-light">€28</span>
+                    </div>
+                    <p class="text-gray-500 text-sm italic font-light">Horseradish cream, pickled shallots, dill oil.</p>
+                </div>
+
+                <!-- Course 2 -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-baseline menu-item mb-2">
+                        <h3 class="text-2xl font-light serif italic">Wild Forest Mushroom Risotto</h3>
+                        <span class="text-primary font-light">€34</span>
+                    </div>
+                    <p class="text-gray-500 text-sm italic font-light">Truffle butter, 24-month aged parmesan, chervil.</p>
+                </div>
+
+                <!-- Course 3 -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-baseline menu-item mb-2">
+                        <h3 class="text-2xl font-light serif italic">Roasted Wagyu Beef</h3>
+                        <span class="text-primary font-light">€52</span>
+                    </div>
+                    <p class="text-gray-500 text-sm italic font-light">Bone marrow jus, charred leeks, potato fondant.</p>
+                </div>
+
+                <!-- Course 4 -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-baseline menu-item mb-2">
+                        <h3 class="text-2xl font-light serif italic">Poached Pear in Red Wine</h3>
+                        <span class="text-primary font-light">€18</span>
+                    </div>
+                    <p class="text-gray-500 text-sm italic font-light">Spiced mascarpone, toasted hazelnuts, honey brittle.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-20" data-aos="zoom-in">
+                <a href="#" class="btn-reserve">Download Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-6 md:px-20 border-t border-white/5 bg-bg text-center">
+        <div class="text-4xl font-bold tracking-[8px] serif text-white mb-16">SÔL</div>
+        
+        <div class="grid md:grid-cols-3 gap-16 mb-20 text-center">
+            <div>
+                <h4 class="text-xs tracking-[4px] uppercase text-primary mb-6">Address</h4>
+                <p class="text-gray-400 font-light italic">15 Rue de Rivoli<br>75004 Paris, France</p>
+            </div>
+            <div>
+                <h4 class="text-xs tracking-[4px] uppercase text-primary mb-6">Contact</h4>
+                <p class="text-gray-400 font-light italic">hello@solrestaurant.com<br>+33 1 42 74 34 56</p>
+            </div>
+            <div>
+                <h4 class="text-xs tracking-[4px] uppercase text-primary mb-6">Hours</h4>
+                <p class="text-gray-400 font-light italic">Mon - Sun: 12:00 - 23:00<br>Dinner only on Weekends</p>
+            </div>
+        </div>
+
+        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase italic">Designed for the Connoisseur &copy; 2026 SÔL RESTAURANT GROUP</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.onscroll = function() {
+            var nav = document.getElementById('navbar');
+            if (window.pageYOffset > 100) {
+                nav.style.background = "rgba(13, 13, 13, 0.95)";
+                nav.style.padding = "20px 40px";
+            } else {
+                nav.style.background = "transparent";
+                nav.style.padding = "32px 80px";
+            }
+        };
+    </script>
+</body>
+</html>
