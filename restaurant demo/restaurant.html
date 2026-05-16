@@ -1,255 +1,744 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SÔL — Fine Dining & Culinary Art</title>
-    
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Noir | Cinematic Gastronomy</title>
+    <!-- Google Fonts: Elegant Serif + Modern Sans -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        :root {
-            --primary: #BC8E5E;
-            --bg: #0D0D0D;
-            --text: #E5E5E5;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: #0B0B0B;
+            color: #F5E6D3;
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .serif {
-            font-family: 'Playfair Display', serif;
+        /* custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
         }
 
-        .menu-item::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px dotted rgba(188, 142, 94, 0.3);
-            margin: 0 10px;
-            margin-bottom: 5px;
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
         }
 
-        .nav-link {
+        ::-webkit-scrollbar-thumb {
+            background: #FF8C42;
+            border-radius: 10px;
+        }
+
+        /* luxury smooth container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* glassmorphism navbar */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1300px;
+            background: rgba(11, 11, 11, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            border: 1px solid rgba(255, 140, 66, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 140, 66, 0.05);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
             letter-spacing: 2px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
+            background: linear-gradient(135deg, #F5E6D3 30%, #D9A441 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #F5E6D3;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
             transition: 0.3s;
+            position: relative;
         }
 
-        .nav-link:hover {
-            color: var(--primary);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #FF8C42;
+            transition: width 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border-radius: 3px;
         }
 
-        .btn-reserve {
-            border: 1px solid var(--primary);
-            padding: 14px 40px;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.8rem;
-            color: var(--primary);
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
-        .btn-reserve:hover {
-            background: var(--primary);
-            color: var(--bg);
-            box-shadow: 0 10px 30px rgba(188, 142, 94, 0.2);
+        .nav-links a:hover {
+            color: #FF8C42;
         }
 
-        .hero-title {
+        .cta-nav {
+            background: rgba(255, 140, 66, 0.1);
+            border: 1px solid rgba(255, 140, 66, 0.5);
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #FF8C42;
+            transition: 0.25s;
+            backdrop-filter: blur(4px);
+        }
+
+        .cta-nav:hover {
+            background: #FF8C42;
+            color: #0B0B0B;
+            box-shadow: 0 0 18px rgba(255, 140, 66, 0.6);
+            border-color: transparent;
+        }
+
+        /* hero section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            background: url('https://images.pexels.com/photos/2983098/pexels-photo-2983098.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+            filter: brightness(0.4) contrast(1.2);
+            transform: scale(1.05);
+            animation: slowZoom 25s infinite alternate ease-in-out;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 0, 0, 0.3), #0B0B0B 90%);
+        }
+
+        @keyframes slowZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.08);
+            }
+        }
+
+        .hero-content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 6rem 0;
+        }
+
+        .hero-text {
+            flex: 1.2;
+            z-index: 3;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .hero-text h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5.5rem;
+            font-weight: 600;
             line-height: 1.1;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #FFF 30%, #FFB347 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
         }
 
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .hero-text p {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            color: rgba(245, 230, 211, 0.85);
+            max-width: 550px;
+            margin-bottom: 2rem;
         }
 
-        .floating {
-            animation: float 8s ease-in-out infinite;
+        .glow-btn {
+            background: linear-gradient(95deg, #FF8C42, #D9A441);
+            border: none;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #0B0B0B;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.3);
+            font-family: 'Inter', sans-serif;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0); }
-            50% { transform: translateY(-30px) rotate(2deg); }
+        .glow-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 140, 66, 0.5);
+            letter-spacing: 0.5px;
+        }
+
+        .carousel-arrows {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .arrow {
+            background: rgba(255, 255, 245, 0.08);
+            backdrop-filter: blur(8px);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #FF8C42;
+            border: 1px solid rgba(255, 140, 66, 0.4);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .arrow:hover {
+            background: #FF8C42;
+            color: #0B0B0B;
+            transform: scale(1.05);
+        }
+
+        .hero-image-floating {
+            flex: 0.8;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: floatGlow 3s infinite alternate;
+        }
+
+        .hero-image-floating img {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 35px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 0 4px rgba(217, 164, 65, 0.2);
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+        }
+
+        @keyframes floatGlow {
+            0% {
+                transform: translateY(0px);
+                filter: drop-shadow(0 0 6px #FF8C4250);
+            }
+
+            100% {
+                transform: translateY(-12px);
+                filter: drop-shadow(0 0 18px #FF8C42aa);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* featured section */
+        .featured {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .featured-inner {
+            display: flex;
+            gap: 6rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .featured-text {
+            flex: 1;
+        }
+
+        .featured-text h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.5rem;
+        }
+
+        .accent-line {
+            width: 70px;
+            height: 3px;
+            background: #FF8C42;
+            margin-bottom: 1.8rem;
+        }
+
+        .featured-text p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #ddd2c2;
+            margin-bottom: 2rem;
+        }
+
+        .featured-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .circle-glow {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: url('https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;
+            box-shadow: 0 0 0 5px rgba(217, 164, 65, 0.4), 0 25px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.5s;
+        }
+
+        .circle-glow:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 8px rgba(255, 140, 66, 0.6);
+        }
+
+        /* signature dishes gallery */
+        .gallery {
+            padding: 100px 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(25, 20, 15, 0.5), #0B0B0B);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            letter-spacing: -0.3px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 90px;
+            height: 2px;
+            background: #D9A441;
+            margin: 15px auto 0;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .dish-card {
+            background: rgba(20, 18, 18, 0.5);
+            backdrop-filter: blur(6px);
+            border-radius: 35px;
+            overflow: hidden;
+            border: 1px solid rgba(217, 164, 65, 0.25);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-12px);
+            border-color: #FF8C42;
+            box-shadow: 0 30px 35px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 140, 66, 0.3);
+        }
+
+        .dish-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .dish-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .dish-card:hover .dish-img img {
+            transform: scale(1.08);
+        }
+
+        .dish-info {
+            padding: 1.5rem;
+        }
+
+        .dish-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FFE3C9;
+        }
+
+        .dish-info p {
+            font-size: 0.9rem;
+            color: #b9aa98;
+            margin-top: 0.4rem;
+        }
+
+        /* glassmorphism interactive */
+        .floating-glass {
+            background: rgba(15, 15, 15, 0.5);
+            backdrop-filter: blur(16px);
+        }
+
+        /* footer / extra elegance */
+        footer {
+            padding: 50px 0 30px;
+            text-align: center;
+            border-top: 1px solid rgba(217, 164, 65, 0.2);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        /* responsive */
+        @media (max-width: 1000px) {
+            .hero-text h1 {
+                font-size: 3.2rem;
+            }
+
+            .navbar {
+                padding: 0.5rem 1.2rem;
+                width: 95%;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .carousel-arrows {
+                justify-content: center;
+            }
+
+            .featured-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .accent-line {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .circle-glow {
+                width: 280px;
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .nav-links {
+                display: none;
+            }
+
+            .navbar .cta-nav {
+                margin-left: auto;
+            }
+
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+        }
+
+        /* smooth scroll reveal (Intersection Observer classes) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 px-6 md:px-20 py-8 flex justify-between items-center bg-transparent transition-all duration-500" id="navbar">
-        <div class="text-3xl font-bold tracking-[4px] serif text-white">SÔL</div>
-        
-        <div class="hidden md:flex gap-12">
-            <a href="#" class="nav-link">Menu</a>
-            <a href="#" class="nav-link">The Story</a>
-            <a href="#" class="nav-link">Private Events</a>
-            <a href="#" class="nav-link">Journal</a>
-        </div>
-
-        <a href="#" class="hidden md:block btn-reserve">Reservation</a>
-        
-        <div class="md:hidden">
-            <i data-lucide="menu" class="w-6 h-6"></i>
+    <!-- Glass Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">NOIR</div>
+            <ul class="nav-links">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">EXPERIENCE</a></li>
+                <li><a href="#">SIGNATURE</a></li>
+                <li><a href="#">JOURNAL</a></li>
+            </ul>
+            <div class="cta-nav">RESERVE</div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-50 scale-110" id="heroImg">
-            <div class="absolute inset-0 bg-gradient-to-b from-bg/60 via-transparent to-bg"></div>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Embers &<br>Elegance</h1>
+                <p>Where primal fire meets refined artistry. An immersive gastronomic journey curated by flame, flavor,
+                    and cinematic darkness.</p>
+                <button class="glow-btn">EXPLORE THE MENU <i class="fas fa-arrow-right"
+                        style="margin-left: 8px;"></i></button>
+                <div class="carousel-arrows">
+                    <div class="arrow"><i class="fas fa-chevron-left"></i></div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+            <div class="hero-image-floating">
+                <img src="https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Luxury gourmet burger with warm lighting" style="border-radius: 30px;">
+            </div>
         </div>
+        <!-- bokeh overlay effect -->
+        <div
+            style="position: absolute; bottom: 0; left:0; width:100%; height:200px; background: linear-gradient(to top, #0B0B0B, transparent); pointer-events: none;">
+        </div>
+    </section>
 
-        <div class="relative z-10 text-center px-4" data-aos="fade-up">
-            <p class="uppercase tracking-[8px] text-xs mb-8 text-primary">Est. 1982 — Paris</p>
-            <h1 class="text-7xl md:text-9xl font-bold mb-10 hero-title italic">Savour the <br> Unforgettable</h1>
-            <div class="flex flex-col md:flex-row justify-center gap-6 mt-12">
-                <a href="#" class="btn-reserve bg-primary text-bg border-none">Book a Table</a>
-                <a href="#" class="btn-reserve">Explore Menu</a>
+    <!-- Featured Experience Section (editorial style) -->
+    <section class="featured container" id="experience">
+        <div class="featured-inner reveal">
+            <div class="featured-text">
+                <div class="accent-line"></div>
+                <h2>Curated by<br>Darkness & Light</h2>
+                <p>Every plate tells a story of obsidian nights and amber glows. Our chef’s table presents a sensory
+                    exploration of flame-seared textures, smoked infusions, and edible gold leaf details — an homage to
+                    luxury minimalism.</p>
+                <button class="glow-btn"
+                    style="background: transparent; border: 1px solid #FF8C42; color:#FF8C42; box-shadow: none;">DISCOVER
+                    THE JOURNEY →</button>
+            </div>
+            <div class="featured-img">
+                <div class="circle-glow"></div>
             </div>
         </div>
     </section>
 
-    <!-- Culinary Excellence -->
-    <section class="py-32 bg-bg px-6 md:px-12">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
-            <div class="relative" data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=1000&auto=format&fit=crop" class="rounded-sm z-10 relative brightness-90 shadow-2xl" alt="Chef">
-                <div class="absolute -bottom-10 -right-10 w-64 h-64 border border-primary/20 -z-0"></div>
-            </div>
-
-            <div data-aos="fade-left">
-                <h2 class="text-5xl md:text-6xl font-bold mb-8 serif italic">Honouring the <br> Ingredient</h2>
-                <p class="text-gray-400 text-lg leading-relaxed mb-10 font-light">Every dish at SÔL is a narrative of tradition and innovation. We work exclusively with local artisans and sustainable farms to ensure that every texture, aroma, and flavour reaches your palate at its absolute peak.</p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-[1px] bg-primary"></div>
-                        <span class="text-xs tracking-[4px] uppercase text-gray-500">Michelin Star Certified</span>
+    <!-- Signature Dishes Gallery -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title reveal">Signature Artistry</h2>
+            <div class="grid-cards">
+                <div class="dish-card reveal">
+                    <div class="dish-img"><img
+                            src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Smoked Wagyu"></div>
+                    <div class="dish-info">
+                        <h3>Smoked Wagyu</h3>
+                        <p>Charcoal-seared A5, truffle demi-glace, gold leaf crisp</p>
                     </div>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-[1px] bg-primary"></div>
-                        <span class="text-xs tracking-[4px] uppercase text-gray-500">Sustainable Sourcing</span>
+                </div>
+                <div class="dish-card reveal">
+                    <div class="dish-img"><img
+                            src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Saffron Lobster"></div>
+                    <div class="dish-info">
+                        <h3>Saffron Lobster</h3>
+                        <p>Flambéed with cognac, orange beurre blanc, caviar pearls</p>
+                    </div>
+                </div>
+                <div class="dish-card reveal">
+                    <div class="dish-img"><img
+                            src="https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Midnight Chocolate"></div>
+                    <div class="dish-info">
+                        <h3>Midnight Eclipse</h3>
+                        <p>Liquid core dark chocolate, smoked caramel, gold crumble</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section class="py-32 bg-[#0F0F0F] px-6 md:px-12">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-24" data-aos="fade-up">
-                <p class="text-primary tracking-[8px] text-xs mb-4 uppercase">Seasonal Selection</p>
-                <h2 class="text-5xl md:text-7xl font-bold serif italic">Le Menu</h2>
-            </div>
-
-            <div class="space-y-16">
-                <!-- Course 1 -->
-                <div data-aos="fade-up">
-                    <div class="flex items-baseline menu-item mb-2">
-                        <h3 class="text-2xl font-light serif italic">Smoked Atlantic Salmon</h3>
-                        <span class="text-primary font-light">€28</span>
-                    </div>
-                    <p class="text-gray-500 text-sm italic font-light">Horseradish cream, pickled shallots, dill oil.</p>
-                </div>
-
-                <!-- Course 2 -->
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-baseline menu-item mb-2">
-                        <h3 class="text-2xl font-light serif italic">Wild Forest Mushroom Risotto</h3>
-                        <span class="text-primary font-light">€34</span>
-                    </div>
-                    <p class="text-gray-500 text-sm italic font-light">Truffle butter, 24-month aged parmesan, chervil.</p>
-                </div>
-
-                <!-- Course 3 -->
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-baseline menu-item mb-2">
-                        <h3 class="text-2xl font-light serif italic">Roasted Wagyu Beef</h3>
-                        <span class="text-primary font-light">€52</span>
-                    </div>
-                    <p class="text-gray-500 text-sm italic font-light">Bone marrow jus, charred leeks, potato fondant.</p>
-                </div>
-
-                <!-- Course 4 -->
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-baseline menu-item mb-2">
-                        <h3 class="text-2xl font-light serif italic">Poached Pear in Red Wine</h3>
-                        <span class="text-primary font-light">€18</span>
-                    </div>
-                    <p class="text-gray-500 text-sm italic font-light">Spiced mascarpone, toasted hazelnuts, honey brittle.</p>
-                </div>
-            </div>
-
-            <div class="text-center mt-20" data-aos="zoom-in">
-                <a href="#" class="btn-reserve">Download Full Menu</a>
+    <!-- Additional visual cinematic atmosphere: parallax & floating glass CTA -->
+    <div
+        style="padding: 60px 0 40px; text-align: center; background: radial-gradient(circle at 70% 20%, #1f1a12, #0B0B0B);">
+        <div class="container reveal" style="max-width: 700px; margin:0 auto;">
+            <div
+                style="background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); border-radius: 70px; padding: 2.5rem 2rem; border: 1px solid rgba(217,164,65,0.3);">
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem;">Reserve The Cinematic Table</h3>
+                <p style="margin: 1rem 0 1.5rem;">Limited seats for our immersive tasting menu — fire, shadow, and
+                    sublime ingredients.</p>
+                <button class="glow-btn" style="background:#FF8C42; color:#0B0B0B;">BOOK EXCLUSIVE EXPERIENCE</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="py-24 px-6 md:px-20 border-t border-white/5 bg-bg text-center">
-        <div class="text-4xl font-bold tracking-[8px] serif text-white mb-16">SÔL</div>
-        
-        <div class="grid md:grid-cols-3 gap-16 mb-20 text-center">
-            <div>
-                <h4 class="text-xs tracking-[4px] uppercase text-primary mb-6">Address</h4>
-                <p class="text-gray-400 font-light italic">15 Rue de Rivoli<br>75004 Paris, France</p>
-            </div>
-            <div>
-                <h4 class="text-xs tracking-[4px] uppercase text-primary mb-6">Contact</h4>
-                <p class="text-gray-400 font-light italic">hello@solrestaurant.com<br>+33 1 42 74 34 56</p>
-            </div>
-            <div>
-                <h4 class="text-xs tracking-[4px] uppercase text-primary mb-6">Hours</h4>
-                <p class="text-gray-400 font-light italic">Mon - Sun: 12:00 - 23:00<br>Dinner only on Weekends</p>
+    <footer>
+        <div class="container">
+            <div class="logo" style="font-size: 1.8rem; margin-bottom: 1rem;">NOIR</div>
+            <p>© 2025 — Cinematic Gastronomy. Where every course is a frame of art.</p>
+            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 20px; color:#D9A441;">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-x-twitter"></i>
             </div>
         </div>
-
-        <p class="text-[10px] text-gray-700 tracking-[5px] uppercase italic">Designed for the Connoisseur &copy; 2026 SÔL RESTAURANT GROUP</p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- Intersection Observer for reveal animations + additional GSAP-like smooth scale -->
     <script>
-        AOS.init({
-            duration: 1200,
-            once: true
-        });
-        lucide.createIcons();
+        // Smooth scroll and Intersection Observer for reveal effect
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+                // optional: keep active once visible
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -10px 0px" });
+        reveals.forEach(el => observer.observe(el));
 
-        // Navbar scroll effect
-        window.onscroll = function() {
-            var nav = document.getElementById('navbar');
-            if (window.pageYOffset > 100) {
-                nav.style.background = "rgba(13, 13, 13, 0.95)";
-                nav.style.padding = "20px 40px";
+        // manual navbar scroll transparency (enhance)
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.style.background = "rgba(11, 11, 11, 0.85)";
+                navbar.style.backdropFilter = "blur(18px)";
             } else {
-                nav.style.background = "transparent";
-                nav.style.padding = "32px 80px";
+                navbar.style.background = "rgba(11, 11, 11, 0.65)";
             }
-        };
+        });
+
+        // Gentle mouse parallax on hero floating image (simple immersive)
+        const heroImg = document.querySelector('.hero-image-floating');
+        if (heroImg) {
+            document.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
+                heroImg.style.transform = `translateY(${yAxis * -1}px) translateX(${xAxis * -1}px)`;
+            });
+        }
+
+        // Hover glow for CTA interactive (add cinematic shadow)
+        const btns = document.querySelectorAll('.glow-btn, .cta-nav, .arrow');
+        btns.forEach(btn => {
+            btn.addEventListener('mouseenter', (e) => {
+                btn.style.transition = 'all 0.2s';
+            });
+        });
+
+        // floating carousel arrows simple demo
+        const leftArrow = document.querySelector('.arrow:first-child');
+        const rightArrow = document.querySelector('.arrow:last-child');
+        if (leftArrow && rightArrow) {
+            leftArrow.addEventListener('click', () => {
+                // subtle feedback (demo: scroll to featured)
+                document.getElementById('experience')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            rightArrow.addEventListener('click', () => {
+                document.querySelector('.gallery')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+
+        // Additional GSAP-style animations using WAAPI for parallax background
+        const heroBg = document.querySelector('.hero-bg');
+        window.addEventListener('scroll', () => {
+            if (heroBg) {
+                let scrolled = window.scrollY;
+                heroBg.style.transform = `scale(1.05) translateY(${scrolled * 0.08}px)`;
+            }
+        });
+
+        // add soft vignette & dynamic warm shadow effect on card hover
+        const cards = document.querySelectorAll('.dish-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'all 0.4s';
+            });
+        });
     </script>
+    <!-- small inline style for luxury text selection -->
+    <style>
+        ::selection {
+            background: #FF8C42;
+            color: #0B0B0B;
+        }
+
+        body {
+            background: #0B0B0B;
+        }
+
+        button,
+        .cta-nav,
+        .arrow {
+            cursor: pointer;
+        }
+    </style>
 </body>
+
 </html>
