@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FITFACTORY - Premium Fitness Gym</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .yellow {
+            color: #FFB400;
+        }
+
+        .bg-yellow-custom {
+            background: #FFB400;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-bg {
+            background:
+                linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .85)),
+                url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1800&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .smoke-bg {
+            background:
+                linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .9)),
+                url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1800&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .btn {
+            transition: .4s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 180, 0, .3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: #FFB400;
+            transition: .4s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .card-hover {
+            transition: .5s;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 180, 0, .15);
+        }
+
+        .zoom img {
+            transition: .6s;
+        }
+
+        .zoom:hover img {
+            transform: scale(1.08);
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-16 py-5">
+
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between">
+
+            <div class="text-2xl font-black tracking-[3px]">
+                FIT<span class="yellow">FACTORY</span>
+            </div>
+
+            <ul class="hidden lg:flex gap-8 text-sm text-gray-300">
+
+                <li class="nav-link cursor-pointer">Home</li>
+                <li class="nav-link cursor-pointer">About</li>
+                <li class="nav-link cursor-pointer">Classes</li>
+                <li class="nav-link cursor-pointer">Trainers</li>
+                <li class="nav-link cursor-pointer">Review</li>
+                <li class="nav-link cursor-pointer">Pricing</li>
+                <li class="nav-link cursor-pointer">Pages</li>
+                <li class="nav-link cursor-pointer">Blog</li>
+                <li class="nav-link cursor-pointer">Contact</li>
+
+            </ul>
+
+            <button class="bg-yellow-custom text-black px-7 py-3 rounded-full font-bold btn">
+                FREE TRIAL
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+
+        <!-- SOCIAL -->
+
+        <div class="hidden md:flex flex-col gap-6 absolute left-10 top-1/2 -translate-y-1/2 z-20">
+
+            <a href="#" class="glass p-4 rounded-full card-hover">
+                <i data-lucide="instagram"></i>
+            </a>
+
+            <a href="#" class="glass p-4 rounded-full card-hover">
+                <i data-lucide="twitter"></i>
+            </a>
+
+            <a href="#" class="glass p-4 rounded-full card-hover">
+                <i data-lucide="youtube"></i>
+            </a>
+
+        </div>
+
+        <div class="absolute top-20 right-20 w-72 h-72 bg-yellow-500/10 blur-[120px] rounded-full"></div>
+
+        <div class="container mx-auto px-6 md:px-20 relative z-10">
+
+            <div class="max-w-5xl" data-aos="fade-up">
+
+                <p class="uppercase tracking-[5px] text-yellow-400 mb-6">
+                    Premium Fitness Club
+                </p>
+
+                <h1 class="text-6xl md:text-8xl lg:text-[110px] font-black leading-none mb-6">
+
+                    <span class="yellow">HARD BODY</span> <br />
+                    GAME
+
+                </h1>
+
+                <h2 class="text-5xl md:text-7xl lg:text-[90px] font-black leading-none mb-10">
+                    TIME TO CHANGE
+                </h2>
+
+                <button class="bg-yellow-custom text-black px-10 py-5 rounded-full font-bold text-lg btn">
+                    KNOW MORE
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ABOUT -->
+
+    <section class="py-32 px-6 md:px-20 bg-[#111111]">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT -->
+
+            <div class="relative" data-aos="fade-right">
+
+                <div class="overflow-hidden rounded-[40px]">
+
+                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1400&auto=format&fit=crop"
+                        class="w-full h-[600px] object-cover" />
+
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center">
+
+                    <button class="bg-yellow-custom text-black p-7 rounded-full btn shadow-2xl">
+
+                        <i data-lucide="play" class="w-10 h-10 fill-black"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div data-aos="fade-left">
+
+                <p class="uppercase tracking-[5px] text-yellow-400 mb-5">
+                    About Us
+                </p>
+
+                <h2 class="text-5xl md:text-6xl font-black mb-8">
+
+                    WHO WE ARE
+
+                </h2>
+
+                <p class="text-gray-400 text-lg leading-8 mb-10">
+                    FITFACTORY is a premium modern fitness club focused on bodybuilding,
+                    strength training, cardio, and elite athletic transformation.
+                    We combine high-end equipment, professional trainers, and motivational
+                    sports culture to create the ultimate fitness experience.
+                </p>
+
+                <button class="bg-yellow-custom text-black px-8 py-4 rounded-full font-bold btn">
+                    READ MORE
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHY CHOOSE US -->
+
+    <section class="smoke-bg py-32 px-6 md:px-20 relative overflow-hidden">
+
+        <h1
+            class="absolute text-[120px] md:text-[220px] font-black text-white/5 top-20 left-10 leading-none select-none">
+
+            WORKOUT <br />
+            RIGHT NOW
+
+        </h1>
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center relative z-10">
+
+            <!-- LEFT -->
+
+            <div data-aos="fade-right">
+
+                <p class="uppercase tracking-[5px] text-yellow-400 mb-5">
+                    Why Choose Us
+                </p>
+
+                <h2 class="text-5xl md:text-6xl font-black mb-12">
+
+                    PUSH YOUR <br />
+                    LIMITS FORWARD
+
+                </h2>
+
+                <div class="space-y-8">
+
+                    <!-- ITEM -->
+
+                    <div class="glass rounded-3xl p-6 flex items-start gap-5 card-hover">
+
+                        <div class="bg-yellow-custom text-black p-4 rounded-2xl">
+                            <i data-lucide="dumbbell"></i>
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold mb-2">
+                                Pro Equipment
+                            </h3>
+
+                            <p class="text-gray-400">
+                                World-class gym equipment for elite performance training.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM -->
+
+                    <div class="glass rounded-3xl p-6 flex items-start gap-5 card-hover">
+
+                        <div class="bg-yellow-custom text-black p-4 rounded-2xl">
+                            <i data-lucide="shield"></i>
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold mb-2">
+                                Ninja Coach
+                            </h3>
+
+                            <p class="text-gray-400">
+                                Certified professional trainers with modern fitness strategies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM -->
+
+                    <div class="glass rounded-3xl p-6 flex items-start gap-5 card-hover">
+
+                        <div class="bg-yellow-custom text-black p-4 rounded-2xl">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold mb-2">
+                                Cardio First
+                            </h3>
+
+                            <p class="text-gray-400">
+                                Premium cardio zones with immersive workout atmosphere.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ITEM -->
+
+                    <div class="glass rounded-3xl p-6 flex items-start gap-5 card-hover">
+
+                        <div class="bg-yellow-custom text-black p-4 rounded-2xl">
+                            <i data-lucide="clock-3"></i>
+                        </div>
+
+                        <div>
+
+                            <h3 class="text-2xl font-bold mb-2">
+                                Flexible Time
+                            </h3>
+
+                            <p class="text-gray-400">
+                                24/7 modern fitness environment for your active lifestyle.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="relative flex justify-center" data-aos="fade-left">
+
+                <div class="absolute inset-0 bg-yellow-500/10 blur-[120px] rounded-full"></div>
+
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop"
+                    class="relative z-10 rounded-[40px] w-full max-w-[520px] floating" />
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CLASSES -->
+
+    <section class="py-32 px-6 md:px-20 bg-[#111111]">
+
+        <div class="text-center mb-20">
+
+            <p class="uppercase tracking-[5px] text-yellow-400 mb-4">
+                Fitness Program
+            </p>
+
+            <h2 class="text-5xl md:text-6xl font-black">
+                OUR CLASSES
+            </h2>
+
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12">
+
+            <!-- CARD -->
+
+            <div class="text-center card-hover" data-aos="fade-up">
+
+                <div
+                    class="relative overflow-hidden rounded-full w-[320px] h-[320px] mx-auto mb-8 zoom border-4 border-yellow-500/30">
+
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
+                        class="w-full h-full object-cover" />
+
+                </div>
+
+                <h3 class="text-3xl font-black mb-4">
+                    Cardio HIIT
+                </h3>
+
+                <p class="text-gray-400 leading-7 max-w-sm mx-auto">
+                    Intense cardio sessions designed for maximum endurance and fat burning.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="text-center card-hover" data-aos="fade-up" data-aos-delay="150">
+
+                <div
+                    class="relative overflow-hidden rounded-full w-[320px] h-[320px] mx-auto mb-8 zoom border-4 border-yellow-500/30">
+
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop"
+                        class="w-full h-full object-cover" />
+
+                </div>
+
+                <h3 class="text-3xl font-black mb-4">
+                    Body Building
+                </h3>
+
+                <p class="text-gray-400 leading-7 max-w-sm mx-auto">
+                    Elite bodybuilding programs for strength, muscle growth, and performance.
+                </p>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+
+                <div
+                    class="relative overflow-hidden rounded-full w-[320px] h-[320px] mx-auto mb-8 zoom border-4 border-yellow-500/30">
+
+                    <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1200&auto=format&fit=crop"
+                        class="w-full h-full object-cover" />
+
+                </div>
+
+                <h3 class="text-3xl font-black mb-4">
+                    Hot Yoga
+                </h3>
+
+                <p class="text-gray-400 leading-7 max-w-sm mx-auto">
+                    Flexible body movement sessions combined with mindful breathing techniques.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="text-center mt-20">
+
+            <button class="bg-yellow-custom text-black px-10 py-5 rounded-full font-black text-lg btn">
+                MORE CLASSES
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="py-10 text-center border-t border-white/10 text-gray-500 bg-black">
+        © 2026 FITFACTORY. All Rights Reserved.
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+
+        lucide.createIcons();
+
+    </script>
+
+</body>
+
+</html>

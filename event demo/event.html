@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EVENT - Premium Event Management</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .gradient {
+            background: linear-gradient(135deg, #8A2BE2, #FF0080);
+        }
+
+        .glow {
+            box-shadow: 0 0 40px rgba(138, 43, 226, .35);
+        }
+
+        .hero-bg {
+            background:
+                linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .85)),
+                url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=1800&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .btn {
+            transition: .4s;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 0, 128, .35);
+        }
+
+        .card-hover {
+            transition: .5s;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(138, 43, 226, .2);
+        }
+
+        .zoom img {
+            transition: .6s;
+        }
+
+        .zoom:hover img {
+            transform: scale(1.08);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: #FF0080;
+            transition: .4s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="fixed top-0 left-0 w-full z-50 px-6 md:px-16 py-5">
+
+        <div class="glass rounded-full px-8 py-4 flex items-center justify-between">
+
+            <div class="text-2xl font-extrabold tracking-[4px]">
+                EVENT.
+            </div>
+
+            <ul class="hidden md:flex items-center gap-10 text-sm text-gray-300">
+
+                <li class="nav-link cursor-pointer">Home</li>
+                <li class="nav-link cursor-pointer">Pages</li>
+                <li class="nav-link cursor-pointer">Services</li>
+                <li class="nav-link cursor-pointer">Event</li>
+                <li class="nav-link cursor-pointer">Blog</li>
+                <li class="nav-link cursor-pointer">Contact</li>
+
+            </ul>
+
+            <div class="flex items-center gap-4">
+
+                <i data-lucide="search" class="hidden md:block"></i>
+                <i data-lucide="shopping-cart" class="hidden md:block"></i>
+
+                <button class="gradient px-7 py-3 rounded-full font-medium btn">
+                    Buy Ticket
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero-bg min-h-screen flex items-center justify-center text-center relative overflow-hidden">
+
+        <div class="absolute top-20 left-20 w-72 h-72 bg-purple-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-20 right-20 w-72 h-72 bg-pink-500/20 blur-[120px] rounded-full"></div>
+
+        <div class="relative z-10 px-6" data-aos="fade-up">
+
+            <p class="uppercase tracking-[5px] text-pink-400 mb-6">
+                Premium Festival Experience
+            </p>
+
+            <h1 class="text-7xl md:text-9xl font-black mb-8 tracking-tight">
+                EVENT
+            </h1>
+
+            <div class="flex justify-center items-center gap-3 text-gray-300">
+
+                <span>Home</span>
+                <span>/</span>
+                <span class="text-pink-400">Event</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SCHEDULE -->
+
+    <section class="py-32 px-6 md:px-20 bg-[#0B0B1A]">
+
+        <div class="text-center mb-20">
+
+            <p class="uppercase tracking-[5px] text-pink-400 mb-4">
+                Event Timeline
+            </p>
+
+            <h2 class="text-5xl md:text-6xl font-bold">
+                Follow Event Schedule
+            </h2>
+
+        </div>
+
+        <!-- TABS -->
+
+        <div class="flex justify-center flex-wrap gap-5 mb-16">
+
+            <button class="gradient px-8 py-4 rounded-full glow btn">
+                Day 01
+            </button>
+
+            <button class="glass px-8 py-4 rounded-full btn">
+                Day 02
+            </button>
+
+            <button class="glass px-8 py-4 rounded-full btn">
+                Day 03
+            </button>
+
+        </div>
+
+        <!-- EVENT CARDS -->
+
+        <div class="grid lg:grid-cols-3 gap-10">
+
+            <!-- CARD -->
+
+            <div class="glass rounded-[35px] overflow-hidden card-hover glow" data-aos="fade-up">
+
+                <div class="overflow-hidden zoom">
+
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop"
+                        class="h-[320px] w-full object-cover" />
+
+                </div>
+
+                <div class="p-8">
+
+                    <div class="flex items-center gap-3 text-pink-400 mb-5">
+
+                        <i data-lucide="clock-3"></i>
+                        <span>08:00 PM - 11:00 PM</span>
+
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">
+                        Neon Music Festival
+                    </h3>
+
+                    <p class="text-gray-400 leading-7 mb-8">
+                        Experience immersive festival vibes, neon lights, cinematic sound systems, and premium DJ
+                        performances.
+                    </p>
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="flex items-center gap-2 text-gray-300">
+
+                            <i data-lucide="map-pin"></i>
+                            <span>New York Arena</span>
+
+                        </div>
+
+                        <button class="gradient px-5 py-3 rounded-full btn">
+                            Buy Ticket
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="glass rounded-[35px] overflow-hidden card-hover glow" data-aos="fade-up" data-aos-delay="150">
+
+                <div class="overflow-hidden zoom">
+
+                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1200&auto=format&fit=crop"
+                        class="h-[320px] w-full object-cover" />
+
+                </div>
+
+                <div class="p-8">
+
+                    <div class="flex items-center gap-3 text-pink-400 mb-5">
+
+                        <i data-lucide="clock-3"></i>
+                        <span>09:00 PM - 01:00 AM</span>
+
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">
+                        EDM Night Concert
+                    </h3>
+
+                    <p class="text-gray-400 leading-7 mb-8">
+                        Hyper immersive nightclub energy with live DJs, cinematic stage lights, and futuristic
+                        atmosphere.
+                    </p>
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="flex items-center gap-2 text-gray-300">
+
+                            <i data-lucide="map-pin"></i>
+                            <span>Los Angeles Club</span>
+
+                        </div>
+
+                        <button class="gradient px-5 py-3 rounded-full btn">
+                            Buy Ticket
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="glass rounded-[35px] overflow-hidden card-hover glow" data-aos="fade-up" data-aos-delay="300">
+
+                <div class="overflow-hidden zoom">
+
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop"
+                        class="h-[320px] w-full object-cover" />
+
+                </div>
+
+                <div class="p-8">
+
+                    <div class="flex items-center gap-3 text-pink-400 mb-5">
+
+                        <i data-lucide="clock-3"></i>
+                        <span>07:00 PM - 10:00 PM</span>
+
+                    </div>
+
+                    <h3 class="text-3xl font-bold mb-4">
+                        Future Beats Party
+                    </h3>
+
+                    <p class="text-gray-400 leading-7 mb-8">
+                        Modern electronic music event with premium visuals, neon smoke effects, and immersive
+                        performances.
+                    </p>
+
+                    <div class="flex items-center justify-between">
+
+                        <div class="flex items-center gap-2 text-gray-300">
+
+                            <i data-lucide="map-pin"></i>
+                            <span>Miami Stadium</span>
+
+                        </div>
+
+                        <button class="gradient px-5 py-3 rounded-full btn">
+                            Buy Ticket
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NEWSLETTER -->
+
+    <section class="py-32 px-6 md:px-20">
+
+        <div class="max-w-6xl mx-auto gradient rounded-[50px] p-12 md:p-20 text-center glow relative overflow-hidden">
+
+            <div class="absolute top-0 left-0 w-full h-full bg-white/5"></div>
+
+            <div class="relative z-10">
+
+                <p class="uppercase tracking-[5px] text-white/70 mb-5">
+                    Newsletter
+                </p>
+
+                <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-10">
+
+                    Get Latest Updates <br />
+                    Subscribe To Our Newsletter
+
+                </h2>
+
+                <div class="max-w-2xl mx-auto glass rounded-full p-3 flex items-center">
+
+                    <input type="email" placeholder="Enter your email"
+                        class="bg-transparent w-full px-6 py-4 outline-none text-white placeholder:text-white/60" />
+
+                    <button class="bg-white text-black p-4 rounded-full btn">
+
+                        <i data-lucide="send"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="pt-24 pb-10 px-6 md:px-20 border-t border-white/10 bg-[#0B0B1A]">
+
+        <div class="grid md:grid-cols-4 gap-14 mb-16">
+
+            <!-- LOGO -->
+
+            <div>
+
+                <h3 class="text-4xl font-black mb-6">
+                    EVENT.
+                </h3>
+
+                <p class="text-gray-400 leading-7 mb-8">
+                    Premium futuristic event management platform with immersive festival experiences and modern ticket
+                    booking solutions.
+                </p>
+
+                <div class="flex gap-4">
+
+                    <div class="glass p-4 rounded-full card-hover">
+                        <i data-lucide="instagram"></i>
+                    </div>
+
+                    <div class="glass p-4 rounded-full card-hover">
+                        <i data-lucide="twitter"></i>
+                    </div>
+
+                    <div class="glass p-4 rounded-full card-hover">
+                        <i data-lucide="youtube"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- EVENTS -->
+
+            <div>
+
+                <h4 class="text-xl font-semibold mb-6">
+                    Upcoming Events
+                </h4>
+
+                <ul class="space-y-4 text-gray-400">
+
+                    <li>Neon Music Festival</li>
+                    <li>EDM Night Concert</li>
+                    <li>Future Beats Party</li>
+                    <li>DJ Universe Live</li>
+
+                </ul>
+
+            </div>
+
+            <!-- LINKS -->
+
+            <div>
+
+                <h4 class="text-xl font-semibold mb-6">
+                    Quick Links
+                </h4>
+
+                <ul class="space-y-4 text-gray-400">
+
+                    <li>About Us</li>
+                    <li>Services</li>
+                    <li>Events</li>
+                    <li>Blog</li>
+
+                </ul>
+
+            </div>
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h4 class="text-xl font-semibold mb-6">
+                    Contact
+                </h4>
+
+                <ul class="space-y-4 text-gray-400">
+
+                    <li>support@event.com</li>
+                    <li>+1 999 888 777</li>
+                    <li>New York, USA</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/10 pt-8 text-center text-gray-500">
+
+            © 2026 EVENT. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+
+        lucide.createIcons();
+
+    </script>
+
+</body>
+
+</html>
