@@ -96,6 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     galleryCards.forEach(card => {
         card.addEventListener('click', () => {
+            const linkSrc = card.getAttribute('data-link');
+            if (linkSrc) {
+                window.location.href = linkSrc;
+                return;
+            }
             const imageSrc = card.getAttribute('data-preview');
             if(imageSrc) {
                 demoImage.src = imageSrc;
@@ -302,10 +307,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: '.device-showcase',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1
+                scrub: true
             },
             y: -100, // moves up while scrolling
             rotationX: 5,
+            force3D: true,
             ease: "none"
         });
 
@@ -314,9 +320,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: '.device-showcase',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 1.5
+                scrub: true
             },
             y: -50,
+            force3D: true,
             ease: "none"
         });
 
@@ -325,10 +332,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: '.device-showcase',
                 start: 'top bottom',
                 end: 'bottom top',
-                scrub: 2
+                scrub: true
             },
             y: 200,
             scale: 1.5,
+            force3D: true,
             ease: "none"
         });
 
@@ -340,9 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: '.device-showcase',
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: 1
+                    scrub: true
                 },
                 objectPosition: '50% 100%', // Scrolls the view inside the image
+                force3D: true,
                 ease: "none"
             });
         });
@@ -356,13 +365,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: '.hero-section',
                     start: 'top top',
                     end: 'bottom top',
-                    scrub: 0.5
+                    scrub: true
                 },
-                x: 150, 
-                rotationY: 720, // 2 full rotations
-                scale: 0.6,
-                z: -300,
+                y: -100, 
+                x: -30,
+                rotationZ: -3,
+                scale: 0.8,
                 opacity: 0,
+                force3D: true,
                 ease: "none"
             });
 
@@ -371,14 +381,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     trigger: '.hero-section',
                     start: 'top top',
                     end: 'bottom top',
-                    scrub: 0.5
+                    scrub: true
                 },
-                x: 100, 
-                rotationY: 720, // 2 full rotations
-                rotationX: 0,
-                scale: 1.2,
-                z: 200,
+                y: -50, 
+                x: 30,
+                rotationZ: 3,
+                scale: 1.1,
                 opacity: 1,
+                force3D: true,
                 ease: "none"
             });
         }

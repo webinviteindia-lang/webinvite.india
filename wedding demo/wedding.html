@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Ayaan & Hana — Everlasting Bloom | Wedding Invitation</title>
+    <style>
+        :root {
+            --deep-floral: #0c1a17;
+            --dark-moss: #0f201b;
+            --gold-leaf: #cfb284;
+            --soft-gold: #e2ca9b;
+            --pale-bud: #f3ede2;
+            --rose-bare: #d9c2a7;
+            --sage-mist: #6f8f7a;
+            --ivory-cream: #fcf9f2;
+            --charcoal-soft: #1f2c27;
+            --glass-bg: rgba(15, 28, 23, 0.58);
+            --glass-border: rgba(207, 178, 132, 0.28);
+            --shadow-luxury: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(207, 178, 132, 0.2);
+            --transition-elegant: cubic-bezier(0.23, 1, 0.32, 1);
+            --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #cfb284 #0c1a17;
+        }
+
+        body {
+            background: var(--deep-floral);
+            color: var(--ivory-cream);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Nature-inspired background texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.04"><path fill="none" stroke="%23cfb284" stroke-width="0.8" d="M200 300 Q250 220 280 260 T340 240 M500 150 Q540 110 560 140 T610 120 M100 600 Q140 550 170 580 T210 570 M650 500 Q680 450 710 480 T750 470 M420 680 Q450 640 470 660 T510 650"/><circle cx="380" cy="350" r="12" fill="none" stroke="%23cfb284" stroke-width="0.5"/><circle cx="550" cy="420" r="18" fill="none" stroke="%23cfb284" stroke-width="0.4"/><path d="M70 440 L90 430 L110 445" stroke="%23cfb284" fill="none" stroke-width="0.6"/></svg>');
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0c1a17;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cfb284;
+            border-radius: 8px;
+        }
+
+        /* Main container */
+        .main-site {
+            position: relative;
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.6s var(--transition-elegant);
+        }
+
+        /* Navigation — refined botanical */
+        .nav-luxury {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 22px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 42px;
+            background: linear-gradient(180deg, rgba(12, 26, 23, 0.92) 0%, rgba(12, 26, 23, 0) 100%);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-luxury {
+                padding: 14px 16px;
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-luxury {
+                gap: 14px;
+                padding: 12px 12px;
+            }
+        }
+
+        .nav-luxury.scrolled {
+            background: rgba(9, 20, 17, 0.96);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+            padding: 14px 40px;
+        }
+
+        .nav-link {
+            color: var(--soft-gold);
+            text-decoration: none;
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-leaf);
+            transition: width 0.35s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #f3e1be;
+            text-shadow: 0 0 6px rgba(207, 178, 132, 0.5);
+        }
+
+        /* Hero — floral & dreamy */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 30% 40%, #1a332c 0%, #05120e 85%);
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1900&q=80');
+            background-size: cover;
+            background-position: center 25%;
+            opacity: 0.28;
+            filter: brightness(0.65) sepia(0.2);
+            transition: transform 0.1s linear;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(5, 18, 14, 0.65) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 20px;
+            max-width: 820px;
+        }
+
+        .hero-families-text {
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            color: var(--rose-bare);
+            text-transform: uppercase;
+            animation: fadeUp 1.2s ease forwards;
+            margin-bottom: 10px;
+        }
+
+        .hero-names {
+            font-family: var(--font-serif);
+            font-size: 5.2rem;
+            font-weight: 350;
+            letter-spacing: 10px;
+            color: var(--ivory-cream);
+            animation: fadeUp 1.2s 0.1s forwards;
+            text-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-names {
+                font-size: 3rem;
+                letter-spacing: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-names {
+                font-size: 2rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        .hero-invite-text {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--soft-gold);
+            letter-spacing: 4px;
+            margin-top: 12px;
+            animation: fadeUp 1.2s 0.25s forwards;
+        }
+
+        .hero-date {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--gold-leaf);
+            letter-spacing: 6px;
+            margin-top: 22px;
+            animation: fadeUp 1.2s 0.4s forwards;
+        }
+
+        .countdown-container {
+            display: flex;
+            gap: 26px;
+            justify-content: center;
+            margin-top: 32px;
+            flex-wrap: wrap;
+            animation: fadeUp 1.2s 0.55s forwards;
+        }
+
+        .countdown-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 48px;
+            padding: 12px 24px;
+            backdrop-filter: blur(16px);
+            transition: all 0.3s;
+            min-width: 90px;
+        }
+
+        .countdown-number {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 400;
+            color: var(--soft-gold);
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--sage-mist);
+            text-transform: uppercase;
+        }
+
+        .btn-invitation {
+            display: inline-block;
+            margin-top: 36px;
+            padding: 14px 48px;
+            background: transparent;
+            border: 1.5px solid var(--gold-leaf);
+            color: var(--gold-leaf);
+            font-family: var(--font-serif);
+            font-size: 0.9rem;
+            letter-spacing: 6px;
+            border-radius: 60px;
+            transition: 0.5s;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            animation: fadeUp 1.2s 0.7s forwards;
+        }
+
+        .btn-invitation:hover {
+            background: rgba(207, 178, 132, 0.12);
+            border-color: var(--soft-gold);
+            letter-spacing: 8px;
+            box-shadow: 0 0 35px rgba(207, 178, 132, 0.2);
+        }
+
+        /* Scroll indicator — perfectly centered */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 12;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: auto;
+            animation: gentleBounce 2.2s infinite;
+        }
+
+        .scroll-line {
+            width: 1.5px;
+            height: 58px;
+            background: linear-gradient(180deg, var(--gold-leaf) 0%, rgba(207, 178, 132, 0.2) 80%);
+            margin-bottom: 8px;
+        }
+
+        .scroll-text {
+            font-family: var(--font-serif);
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--rose-bare);
+            font-weight: 300;
+        }
+
+        @keyframes gentleBounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(6px);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+                filter: blur(3px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        /* Section Styles — Earthy botanical */
+        .section-padding {
+            padding: 110px 40px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 80px 24px;
+            }
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            letter-spacing: 5px;
+            color: var(--soft-gold);
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 1px;
+            background: var(--gold-leaf);
+            margin: 18px auto 32px;
+            opacity: 0.6;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--sage-mist);
+            margin-bottom: 60px;
+            text-transform: uppercase;
+        }
+
+        /* Story Timeline — with organic elements */
+        .story-section {
+            background: radial-gradient(circle at 20% 30%, #0f231e, #05120e);
+        }
+
+        .story-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 40px;
+        }
+
+        .story-timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 20px;
+            bottom: 20px;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--gold-leaf), rgba(207, 178, 132, 0.2));
+        }
+
+        .story-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 28px 32px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(16px);
+            transition: 0.4s;
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .story-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .story-card:hover {
+            transform: translateX(6px) translateY(-4px);
+            border-color: rgba(207, 178, 132, 0.5);
+        }
+
+        .story-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.7rem;
+            color: var(--soft-gold);
+            letter-spacing: 2px;
+        }
+
+        .story-card-text {
+            color: #ddcfbc;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Events - Card with floral mood */
+        .events-section {
+            background: radial-gradient(circle at 80% 60%, #10231e, #030e0b);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 850px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
+        }
+
+        .event-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 32px 20px;
+            text-align: center;
+            backdrop-filter: blur(20px);
+            transition: all 0.35s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .event-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-card:hover {
+            border-color: var(--gold-leaf);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-decorative-line {
+            width: 40px;
+            height: 1.5px;
+            background: var(--gold-leaf);
+            margin: 0 auto 18px;
+        }
+
+        .event-name {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--soft-gold);
+            letter-spacing: 2px;
+        }
+
+        .event-detail {
+            font-size: 0.85rem;
+            color: #d0c2aa;
+            margin: 8px 0;
+        }
+
+        .event-location-link {
+            color: var(--rose-bare);
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(207, 178, 132, 0.5);
+            transition: 0.2s;
+        }
+
+        .event-location-link:hover {
+            color: var(--soft-gold);
+        }
+
+        /* Gallery — lush, natural arrangement */
+        .gallery-section {
+            background: radial-gradient(ellipse at 30% 40%, #122824, #03120e);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                gap: 8px;
+            }
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 24px;
+            cursor: pointer;
+            border: 1px solid rgba(207, 178, 132, 0.3);
+            transition: 0.4s;
+            opacity: 0;
+            transform: scale(0.96);
+            background: #1f2e28;
+        }
+
+        .gallery-item.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.7s;
+            filter: brightness(0.78) contrast(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+            filter: brightness(0.93);
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 480px) {
+
+            .gallery-item.tall,
+            .gallery-item.wide {
+                grid-row: span 1;
+                grid-column: span 1;
+            }
+        }
+
+        .gallery-fullscreen {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 20, 16, 0.96);
+            backdrop-filter: blur(32px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s;
+            z-index: 2000;
+            cursor: pointer;
+        }
+
+        .gallery-fullscreen.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gallery-fullscreen img {
+            max-width: 88vw;
+            max-height: 85vh;
+            border-radius: 28px;
+            border: 1px solid var(--gold-leaf);
+            box-shadow: 0 30px 60px black;
+        }
+
+        /* RSVP — earthly elegance */
+        .rsvp-section {
+            background: radial-gradient(circle at 50% 20%, #132c25, #03100c);
+        }
+
+        .rsvp-form-wrapper {
+            max-width: 580px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 48px;
+            padding: 48px 44px;
+            backdrop-filter: blur(20px);
+        }
+
+        .rsvp-label {
+            font-family: var(--font-serif);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--gold-leaf);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .rsvp-input {
+            width: 100%;
+            padding: 12px 18px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(207, 178, 132, 0.3);
+            border-radius: 42px;
+            color: #f4ede3;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            outline: none;
+        }
+
+        .rsvp-input:focus {
+            border-color: var(--gold-leaf);
+            box-shadow: 0 0 10px rgba(207, 178, 132, 0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--gold-leaf);
+            border-radius: 60px;
+            color: var(--soft-gold);
+            letter-spacing: 4px;
+            font-family: var(--font-serif);
+            transition: 0.35s;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .btn-submit:hover {
+            background: rgba(207, 178, 132, 0.12);
+            letter-spacing: 6px;
+        }
+
+        .rsvp-thank-you {
+            text-align: center;
+            display: none;
+        }
+
+        .rsvp-thank-you.show {
+            display: block;
+            animation: fadeUp 0.5s;
+        }
+
+        .rsvp-thank-you .thank-text {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--soft-gold);
+        }
+
+        /* Footer */
+        .footer-luxury {
+            text-align: center;
+            padding: 48px 20px;
+            border-top: 1px solid rgba(207, 178, 132, 0.2);
+            background: #04120e;
+        }
+
+        .footer-names {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: var(--gold-leaf);
+        }
+
+        /* Particles minimal */
+        .particles-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(207, 178, 132, 0.45);
+            border-radius: 50%;
+            animation: floatPetal 12s infinite linear;
+        }
+
+        @keyframes floatPetal {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.7;
+            }
+
+            80% {
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        .cursor-glow {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .cursor-glow {
+                display: block;
+            }
+        }
+    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@200;300;400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main-site" id="mainSite">
+        <nav class="nav-luxury" id="navLuxury">
+            <a href="#hero" class="nav-link">Home</a>
+            <a href="#story" class="nav-link">Our Story</a>
+            <a href="#events" class="nav-link">Events</a>
+            <a href="#gallery" class="nav-link">Moments</a>
+            <a href="#rsvp" class="nav-link">RSVP</a>
+        </nav>
+
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-image" id="heroParallax"></div>
+            <div class="hero-overlay"></div>
+            <div class="particles-container" id="particles"></div>
+            <div class="hero-content">
+                <p class="hero-families-text">Together with Families</p>
+                <h1 class="hero-names">Ayaan & Hana</h1>
+                <p class="hero-invite-text">Inspired by nature,<br>united by love</p>
+                <p class="hero-date">20 December 2026</p>
+                <div class="countdown-container" id="countdownTimer">
+                    <div class="countdown-item"><span class="countdown-number" id="days">00</span><span
+                            class="countdown-label">Days</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="hours">00</span><span
+                            class="countdown-label">Hours</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="minutes">00</span><span
+                            class="countdown-label">Minutes</span></div>
+                    <div class="countdown-item"><span class="countdown-number" id="seconds">00</span><span
+                            class="countdown-label">Seconds</span></div>
+                </div>
+                <a href="#rsvp" class="btn-invitation">Cherish the Moment</a>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <div class="scroll-text">Begin Our Journey</div>
+            </div>
+        </section>
+
+        <section class="story-section section-padding" id="story">
+            <h2 class="section-title">Our Blossoming Path</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Rooted in tenderness, blooming together</p>
+            <div class="story-timeline">
+                <div class="story-card" data-reveal>
+                    <h3 class="story-card-title">Where petals first fell</h3>
+                    <p class="story-card-text">In a garden veiled in jasmine whispers, Ayaan handed Hana a single white
+                        peony. That afternoon, time stood still — two souls recognized their reflection in each other’s
+                        eyes.</p>
+                </div>
+                <div class="story-card" data-reveal>
+                    <h3 class="story-card-title">The silent vow</h3>
+                    <p class="story-card-text">Beneath an ancient banyan tree, they carved their dreams into the wind. A
+                        promise whispered without pretense — to nurture each season, to weather every storm together.
+                    </p>
+                </div>
+                <div class="story-card" data-reveal>
+                    <h3 class="story-card-title">A canvas of forever</h3>
+                    <p class="story-card-text">With the scent of rain and earth, they chose each other without doubt.
+                        This wedding is not just a celebration — it’s the first sunrise of a shared eternity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="events-section section-padding" id="events">
+            <h2 class="section-title">Ceremonies</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Moments of joy, tradition & love</p>
+            <div class="events-grid">
+                <div class="event-card" data-reveal><span class="event-decorative-line"></span>
+                    <h3 class="event-name">Mehendi</h3>
+                    <p class="event-detail"><strong>Date:</strong> 18 Dec 2026 | 4:00 PM</p>
+                    <p class="event-detail"><strong>Venue:</strong> <a
+                            href="https://www.google.com/maps/search/The+Emerald+Garden+Jaipur" target="_blank"
+                            class="event-location-link">Emerald Garden, Jaipur</a></p>
+                </div>
+                <div class="event-card" data-reveal><span class="event-decorative-line"></span>
+                    <h3 class="event-name">Wedding</h3>
+                    <p class="event-detail"><strong>Date:</strong> 20 Dec 2026 | 7:00 PM</p>
+                    <p class="event-detail"><strong>Venue:</strong> <a
+                            href="https://www.google.com/maps/search/The+Royal+Palace+Hall+Jaipur" target="_blank"
+                            class="event-location-link">Royal Palace Hall, Jaipur</a></p>
+                </div>
+                <div class="event-card" data-reveal><span class="event-decorative-line"></span>
+                    <h3 class="event-name">Reception</h3>
+                    <p class="event-detail"><strong>Date:</strong> 21 Dec 2026 | 7:30 PM</p>
+                    <p class="event-detail"><strong>Venue:</strong> <a
+                            href="https://www.google.com/maps/search/The+Grand+Ballroom+Jaipur" target="_blank"
+                            class="event-location-link">Grand Ballroom, Jaipur</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section section-padding" id="gallery">
+            <h2 class="section-title">Fragments of Us</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">A visual poetry</p>
+            <div class="gallery-grid">
+                <div class="gallery-item tall" data-reveal><img
+                        src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80"
+                        alt="bride groom traditional"></div>
+                <div class="gallery-item" data-reveal><img
+                        src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80"
+                        alt="flower decor"></div>
+                <div class="gallery-item" data-reveal><img
+                        src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80"
+                        alt="romantic embrace"></div>
+                <div class="gallery-item wide" data-reveal><img
+                        src="https://images.unsplash.com/photo-1529636798458-92182e662485?w=900&q=80"
+                        alt="wedding festivities"></div>
+                <div class="gallery-item" data-reveal><img
+                        src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80"
+                        alt="floral elegance"></div>
+                <div class="gallery-item tall" data-reveal><img
+                        src="https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?w=600&q=80"
+                        alt="rings and vows"></div>
+                <div class="gallery-item" data-reveal><img
+                        src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&q=80"
+                        alt="candlelit moment"></div>
+            </div>
+        </section>
+
+        <div class="gallery-fullscreen" id="fullscreenModal"><img id="fullImg" src="" alt=""></div>
+
+        <section class="rsvp-section section-padding" id="rsvp">
+            <h2 class="section-title">Honor us with your presence</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Kindly share your blessing</p>
+            <div class="rsvp-form-wrapper">
+                <form id="rsvpForm">
+                    <div><label class="rsvp-label">Your name</label><input type="text" class="rsvp-input" id="guestName"
+                            required placeholder="Full name"></div>
+                    <div><label class="rsvp-label">Email</label><input type="email" class="rsvp-input" id="guestEmail"
+                            required placeholder="contact@example.com"></div>
+                    <div><label class="rsvp-label">Attending with</label><select class="rsvp-input" id="guestCount"
+                            required>
+                            <option value="">Select</option>
+                            <option>1 Guest</option>
+                            <option>2 Guests</option>
+                            <option>3 Guests</option>
+                            <option>4+ Guests</option>
+                        </select></div>
+                    <div><label class="rsvp-label">Warm wishes</label><textarea class="rsvp-input" id="messageWishes"
+                            rows="2" placeholder="Your love-filled message..."></textarea></div>
+                    <button type="submit" class="btn-submit">Send Response</button>
+                </form>
+                <div class="rsvp-thank-you" id="thankMsg"><span class="thank-text">✦ Grateful Heart ✦</span>
+                    <p style="color:#cfb284;">We can’t wait to celebrate with you</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-luxury">
+            <p class="footer-names">Ayaan & Hana</p>
+            <p class="footer-tagline">timeless, wild, and forever free</p>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            // Countdown
+            const target = new Date('2026-12-20T19:00:00+05:30').getTime();
+            function updateCD() {
+                const now = Date.now();
+                const diff = target - now;
+                if (diff <= 0) { document.querySelectorAll('.countdown-number').forEach(el => el.textContent = '00'); return; }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(mins).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(secs).padStart(2, '0');
+            }
+            setInterval(updateCD, 1000); updateCD();
+
+            // Particles botanic style
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 35; i++) {
+                let p = document.createElement('div');
+                p.classList.add('particle');
+                let size = 2 + Math.random() * 4;
+                p.style.width = size + 'px'; p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 15 + 's';
+                p.style.animationDuration = 8 + Math.random() * 12 + 's';
+                p.style.opacity = 0.4 + Math.random() * 0.5;
+                p.style.background = `rgba(207,178,132,${0.2 + Math.random() * 0.4})`;
+                particlesContainer.appendChild(p);
+            }
+
+            // Intersection Observer
+            const revealItems = document.querySelectorAll('[data-reveal]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+            revealItems.forEach(el => observer.observe(el));
+
+            // Nav scroll effect + smooth anchor
+            const nav = document.getElementById('navLuxury');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.scrollY > 80);
+                const heroBg = document.getElementById('heroParallax');
+                if (heroBg && window.scrollY < window.innerHeight) heroBg.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+            });
+
+            document.querySelectorAll('.nav-link, .btn-invitation').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const hash = this.getAttribute('href');
+                    if (hash && hash.startsWith('#')) {
+                        e.preventDefault();
+                        const targetEl = document.querySelector(hash);
+                        if (targetEl) {
+                            const offset = nav.offsetHeight + 15;
+                            const top = targetEl.getBoundingClientRect().top + window.scrollY - offset;
+                            window.scrollTo({ top, behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            // Gallery fullscreen
+            const modal = document.getElementById('fullscreenModal');
+            const fullImg = document.getElementById('fullImg');
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fullImg.src = img.src;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            modal.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) modal.classList.remove('active'); document.body.style.overflow = ''; });
+
+            // RSVP Form submit
+            const rsvpForm = document.getElementById('rsvpForm');
+            const thankDiv = document.getElementById('thankMsg');
+            rsvpForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                rsvpForm.style.display = 'none';
+                thankDiv.classList.add('show');
+                setTimeout(() => {
+                    rsvpForm.reset();
+                    rsvpForm.style.display = 'block';
+                    thankDiv.classList.remove('show');
+                }, 4500);
+            });
+
+            // ensure scroll indicator centered text remains perfect
+            console.log('Elegant botanical theme — no loading envelope, scroll centered');
+        })();
+    </script>
+</body>
+
+</html>
