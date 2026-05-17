@@ -257,18 +257,44 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
     align-items: center;
     padding: 100px 5% 0; /* Clear navbar */
     overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #030816 0%, #010206 100%);
 }
 
+/* Noise overlay for cinematic luxury grain */
+.noise-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.012'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Vignette shadow for high-end spotlight composition */
+.cinematic-vignette {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(1, 2, 6, 0.92) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Soft glowing grid pattern */
 .grid-texture {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: 0; pointer-events: none;
+        linear-gradient(rgba(64, 122, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(64, 122, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1; pointer-events: none;
     -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
     mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    animation: grid-glow 12s infinite alternate ease-in-out;
+}
+
+@keyframes grid-glow {
+    0% { opacity: 0.55; }
+    100% { opacity: 0.85; }
 }
 
 .hero-grid {
@@ -292,34 +318,96 @@ h1, h2, h3, h4, .cinematic-text, .massive-text {
 .glow-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.35;
-    animation: orb-float 20s infinite alternate ease-in-out;
+    filter: blur(130px);
+    opacity: 0.45;
+    mix-blend-mode: screen;
+    will-change: transform, opacity;
 }
 
 .orb-1 {
     width: 60vw; height: 60vw;
-    background: rgba(64, 122, 255, 0.25);
+    background: radial-gradient(circle, rgba(16, 46, 120, 0.45) 0%, rgba(8, 20, 60, 0.1) 70%, transparent 100%);
     top: -20%; left: -10%;
+    animation: orb-float-1 25s infinite alternate ease-in-out;
 }
 
 .orb-2 {
     width: 50vw; height: 50vw;
-    background: rgba(255, 255, 255, 0.08);
-    top: 40%; right: -15%;
-    animation-delay: -5s;
+    background: radial-gradient(circle, rgba(64, 122, 255, 0.18) 0%, rgba(30, 80, 200, 0.04) 60%, transparent 100%);
+    top: 35%; right: -15%;
+    animation: orb-float-2 22s infinite alternate ease-in-out 3s;
 }
 
 .orb-3 {
-    width: 70vw; height: 70vw;
-    background: rgba(30, 80, 200, 0.15);
-    bottom: -30%; left: 20%;
-    animation-delay: -10s;
+    width: 65vw; height: 65vw;
+    background: radial-gradient(circle, rgba(20, 50, 150, 0.22) 0%, transparent 70%);
+    bottom: -25%; left: 15%;
+    animation: orb-float-3 28s infinite alternate ease-in-out 6s;
 }
 
-@keyframes orb-float {
+.orb-4 {
+    width: 35vw; height: 35vw;
+    background: radial-gradient(circle, rgba(0, 150, 255, 0.12) 0%, transparent 70%);
+    top: 10%; right: 25%;
+    animation: orb-float-4 20s infinite alternate ease-in-out 1.5s;
+}
+
+/* Light beams sweeping through space */
+.light-beam {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(64, 122, 255, 0.15), transparent);
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(1px);
+    will-change: transform, opacity;
+}
+
+.beam-1 {
+    width: 300px; height: 1px;
+    top: 25%; left: -10%;
+    transform: rotate(-12deg);
+    animation: sweep-beam-1 12s infinite linear;
+}
+
+.beam-2 {
+    width: 400px; height: 1px;
+    bottom: 30%; right: -10%;
+    transform: rotate(15deg);
+    animation: sweep-beam-2 15s infinite linear;
+}
+
+@keyframes orb-float-1 {
     0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(80px, -50px) scale(1.1); }
+    100% { transform: translate(60px, -40px) scale(1.1); }
+}
+
+@keyframes orb-float-2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, 60px) scale(1.15); }
+}
+
+@keyframes orb-float-3 {
+    0% { transform: translate(0, 0) scale(1.05); }
+    100% { transform: translate(50px, -50px) scale(0.9); }
+}
+
+@keyframes orb-float-4 {
+    0% { transform: translate(0, 0) scale(0.9); }
+    100% { transform: translate(-30px, -30px) scale(1.1); }
+}
+
+@keyframes sweep-beam-1 {
+    0% { transform: translateX(-300px) rotate(-12deg); opacity: 0; }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% { transform: translateX(110vw) rotate(-12deg); opacity: 0; }
+}
+
+@keyframes sweep-beam-2 {
+    0% { transform: translateX(300px) rotate(15deg); opacity: 0; }
+    20% { opacity: 0.5; }
+    80% { opacity: 0.5; }
+    100% { transform: translateX(-110vw) rotate(15deg); opacity: 0; }
 }
 
 /* Floating UI details */
